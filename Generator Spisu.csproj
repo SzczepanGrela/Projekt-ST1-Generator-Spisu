@@ -58,6 +58,12 @@
     <Compile Include="Classes\FileOperations\DocxGenerator.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductList.cs" />
+    <Compile Include="Forms\PropertySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PropertySettings.Designer.cs">
+      <DependentUpon>PropertySettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBasicFileOperations.cs" />
     <Compile Include="Interfaces\ITextFileOperations.cs" />
     <Compile Include="MainWindow.cs">
@@ -80,6 +86,9 @@
     <Compile Include="UserControls\DataSlice.Designer.cs">
       <DependentUpon>DataSlice.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\PropertySettings.resx">
+      <DependentUpon>PropertySettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Settings\Attributes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

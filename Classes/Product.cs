@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace Generator_Spisu.Classes
         private int _outgoingquantity;
         private string _outgoingvalue;
         private int _warehousequantity;
+
+
+
 
         public int Id
         {
@@ -79,6 +83,26 @@ namespace Generator_Spisu.Classes
         }
 
 
+        private static List<string> _columnHeaders = new List<string>
+          {
+            "Id",
+            "Towar",
+            "J.M.",
+            "Ilość",
+            "Wartość",
+            "Ilość",
+            "Wartość",
+            "Ilość",
+            "Wartość",
+            "Magazyn"
+          };
+
+
+        public static List<string> ColumnHeaders
+        {
+            get { return _columnHeaders; }
+        }
+
 
         public Product()
         {
@@ -92,8 +116,8 @@ namespace Generator_Spisu.Classes
             this._outgoingquantity = 0;
             this._outgoingvalue = "0";
             this._warehousequantity = 0;
-            
-               
+
+
         }
 
         public Product(string name, int startquantity, string startvalue, int comingquantity, string comingvalue, int outgoingquantity, string outgoingvalue, int warehousequantity, string type, int id)
@@ -108,13 +132,13 @@ namespace Generator_Spisu.Classes
             this._outgoingquantity = outgoingquantity;
             this._outgoingvalue = outgoingvalue;
             this._warehousequantity = warehousequantity;
-            
+
         }
 
 
         public string ToCSV()
         {
-            return this._id + ";" + this._productname + ";" + this._type + ";" + this._startquantity + ";" + this._startvalue + ";" + this._comingquantity + ";" + this._comingvalue + ";" + this._outgoingquantity + ";" + this._outgoingvalue + ";" + this._warehousequantity ;
+            return this._id + ";" + this._productname + ";" + this._type + ";" + this._startquantity + ";" + this._startvalue + ";" + this._comingquantity + ";" + this._comingvalue + ";" + this._outgoingquantity + ";" + this._outgoingvalue + ";" + this._warehousequantity;
         }
 
     }

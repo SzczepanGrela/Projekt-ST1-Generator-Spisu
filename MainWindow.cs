@@ -231,7 +231,10 @@ namespace Generator_Spisu
 
             if (savePath != null)
             {
-                docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists());
+
+                List <string > columnHeaders = Product.ColumnHeaders;
+               
+                docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), columnHeaders);
             }
         }
     }

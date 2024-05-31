@@ -42,8 +42,11 @@ namespace Generator_Spisu.Classes
 
                 foreach (PropertyInfo property in product.GetType().GetProperties())
                 {
-                    object propertyValue = property.GetValue(product);
-                    productProperties.Add(propertyValue);
+                    if (property.Name != "ColumnHeaders")
+                    {
+                        object propertyValue = property.GetValue(product);
+                        productProperties.Add(propertyValue);
+                    }
                 }
                 ListofProductLists.Add(productProperties);
                 

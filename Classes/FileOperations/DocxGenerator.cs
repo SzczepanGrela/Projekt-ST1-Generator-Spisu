@@ -17,24 +17,20 @@ namespace Generator_Spisu.Classes.FileOperations
 
                 Table table = new Table();
 
-                // Add table properties
+                
                 TableProperties tableProperties = new TableProperties(
-                    new TableBorders(
-                        new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
-                        new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
-                        new LeftBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
-                        new RightBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 }
-                    )
+                    new TableWidth { Width = "5000", Type = TableWidthUnitValues.Pct },
+                    new TableIndentation { Width = 0, Type = TableWidthUnitValues.Dxa },
+                    new TableLayout { Type = TableLayoutValues.Fixed },
+                    new TableJustification { Val = TableRowAlignmentValues.Left }
                 );
 
                 table.AppendChild(tableProperties);
 
-                // Add table width
-                TableWidth tableWidth = new TableWidth { Width = "5000", Type = TableWidthUnitValues.Pct };
-                table.AppendChild(tableWidth);
-
-                // Add table header
+                
                 AddTableHeader(table, columnHeaders);
+
+                AddTableBorders(table);
 
                 // Add rows to the table
                 foreach (var rowData in data)
@@ -54,6 +50,7 @@ namespace Generator_Spisu.Classes.FileOperations
             {
                 TableCell headerCell = new TableCell();
                 Paragraph headerParagraph = new Paragraph(new Run(new Text(headerText)));
+                headerCell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Auto }));
                 headerCell.Append(headerParagraph);
                 headerRow.Append(headerCell);
             }
@@ -69,11 +66,29 @@ namespace Generator_Spisu.Classes.FileOperations
             {
                 TableCell cell = new TableCell();
                 Paragraph paragraph = new Paragraph(new Run(new Text(cellData.ToString())));
+                cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Auto }));
                 cell.Append(paragraph);
                 row.Append(cell);
             }
 
             table.Append(row);
         }
+
+
+        private void AddTableBorders(Table table)
+        {
+            // Add table borders
+            TableBorders tableBorders = new TableBorders(
+                new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
+                new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
+                new LeftBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
+                new RightBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
+                new InsideHorizontalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
+                new InsideVerticalBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 }
+            );
+
+            table.GetFirstChild<TableProperties>().Append(tableBorders);
+        }
+
     }
 }
