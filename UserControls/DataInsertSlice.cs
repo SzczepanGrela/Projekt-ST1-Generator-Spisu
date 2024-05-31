@@ -13,16 +13,47 @@ namespace Generator_Spisu.UserControls
 {
     public partial class DataInsertSlice : UserControl
     {
+
+        bool EditMode = false;   // if true, the slice is in edit mode
+
+        int hiddenId = 0;
+
         public DataInsertSlice()
         {
             InitializeComponent();
+
+            DataSlice.ProductEdit += HandleProductEdit;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                if (EditMode)
+                {
+
+                    Product product = GenerateProduct(hiddenId);
+
+                    ProductList.EditProductInList(product);
+
+                    ProductEdited?.Invoke(null, new ProductEditedEventArgs(product));
+
+                    SwitchToNormalMode();
 
 
-            addProductToList();
+                }
+                else
+                {
+                    addProductToList();
+                    ClearBoxes();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
 
         }
@@ -48,16 +79,18 @@ namespace Generator_Spisu.UserControls
             }
 
 
-            ClearBoxes();
+            
         }
 
 
 
-        private Product GenerateProduct()
+        private Product GenerateProduct(int hiddenid = 0)
         {
+            
 
             Product product = new Product();
-            product.Id = ProductList.GetProductsCount()+ 1;
+            if (hiddenid == 0) product.Id = ProductList.GetProductsCount() + 1;
+            else product.Id = hiddenid;
             product.ProductName = this.ProductName.Text;
             product.Type = this.Type.Text;
             product.StartQuantity = int.Parse(this.StartQuantity.Text);
@@ -76,15 +109,15 @@ namespace Generator_Spisu.UserControls
         {
             foreach (Control c in this.tableLayoutPanel1.Controls)
             {
-                
 
-                if (c is TextBox)               
+
+                if (c is TextBox)
                     c.Text = "";
                 else if (c is ComboBox)
                     ((ComboBox)c).SelectedIndex = -1;
 
-                
-            
+
+
             }
         }
 
@@ -97,7 +130,7 @@ namespace Generator_Spisu.UserControls
 
                 if (TextOrCombo && c.Text == "")
                     throw new Exception("Trzeba wypełnić wszystkie pola");
-                
+
             }
 
 
@@ -154,6 +187,58 @@ namespace Generator_Spisu.UserControls
 
 
 
+        private void HandleProductEdit(object sender, ProductEditEventArgs e)
+        {
+
+            FillBoxes(e.Product);
+            hiddenId = e.Product.Id;
+            SwitchToEditMode();
+
+        }
+
+
+        private void FillBoxes(Product product)
+        {
+            this.ProductName.Text = product.ProductName;
+            this.Type.Text = product.Type;
+            this.StartQuantity.Text = product.StartQuantity.ToString();
+            this.StartValue.Text = product.StartValue;
+            this.ComingQuantity.Text = product.ComingQuantity.ToString();
+            this.ComingValue.Text = product.ComingValue;
+            this.OutgoingQuantity.Text = product.OutgoingQuantity.ToString();
+            this.OutgoingValue.Text = product.OutgoingValue;
+            this.WarehouseQuantity.Text = product.WarehouseQuantity.ToString();
+        }
+
+        private void SwitchToEditMode()
+        {
+            if (!EditMode)
+            {
+                EditMode = true;
+                OkButton.Font = new Font(OkButton.Font.FontFamily, 10);
+                OkButton.Text = "Zatwierdź";
+            }
+            else
+            {
+                MessageBox.Show("Spróbowano wejść w tryb edytowania podczas trybu edytowania");
+            }
+        }
+
+        private void SwitchToNormalMode()
+        {
+            if (EditMode)
+            {
+                EditMode = false;
+                hiddenId = 0;
+                OkButton.Font = new Font(OkButton.Font.FontFamily, 15);
+                OkButton.Text = "Ok";
+            }
+            else
+            {
+                throw new Exception("Spróbowano wyjść z trybu edytowania podczas trybu normalnego");
+            }
+        }
+
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
@@ -209,7 +294,17 @@ namespace Generator_Spisu.UserControls
         {
 
         }
+        public static event EventHandler<ProductEditedEventArgs> ProductEdited;
 
+    }
 
+    public class ProductEditedEventArgs : EventArgs
+    {
+        public Product Product { get; }
+
+        public ProductEditedEventArgs(Product product)
+        {
+            Product = product;
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.ProductName = new System.Windows.Forms.Label();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.EditButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -67,18 +68,18 @@
             this.tableLayoutPanel1.Controls.Add(this.StartValue, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.ComingQuantity, 5, 0);
             this.tableLayoutPanel1.Controls.Add(this.ComingValue, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.WarehouseQuantity, 9, 0);
             this.tableLayoutPanel1.Controls.Add(this.OutgoingValue, 8, 0);
             this.tableLayoutPanel1.Controls.Add(this.Type, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.ProductName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.RemoveButton, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.WarehouseQuantity, 9, 0);
+            this.tableLayoutPanel1.Controls.Add(this.EditButton, 10, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(933, 50);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(700, 41);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -86,10 +87,9 @@
             // 
             this.OutgoingQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutgoingQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OutgoingQuantity.Location = new System.Drawing.Point(584, 0);
-            this.OutgoingQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.OutgoingQuantity.Location = new System.Drawing.Point(439, 0);
             this.OutgoingQuantity.Name = "OutgoingQuantity";
-            this.OutgoingQuantity.Size = new System.Drawing.Size(61, 50);
+            this.OutgoingQuantity.Size = new System.Drawing.Size(46, 41);
             this.OutgoingQuantity.TabIndex = 7;
             this.OutgoingQuantity.Text = "6";
             this.OutgoingQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -98,10 +98,9 @@
             // 
             this.ProductNumberLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ProductNumberLabel.Location = new System.Drawing.Point(4, 0);
-            this.ProductNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ProductNumberLabel.Location = new System.Drawing.Point(3, 0);
             this.ProductNumberLabel.Name = "ProductNumberLabel";
-            this.ProductNumberLabel.Size = new System.Drawing.Size(39, 50);
+            this.ProductNumberLabel.Size = new System.Drawing.Size(29, 41);
             this.ProductNumberLabel.TabIndex = 0;
             this.ProductNumberLabel.Text = " 1";
             this.ProductNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,10 +109,9 @@
             // 
             this.StartQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StartQuantity.Location = new System.Drawing.Point(308, 0);
-            this.StartQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.StartQuantity.Location = new System.Drawing.Point(231, 0);
             this.StartQuantity.Name = "StartQuantity";
-            this.StartQuantity.Size = new System.Drawing.Size(61, 50);
+            this.StartQuantity.Size = new System.Drawing.Size(46, 41);
             this.StartQuantity.TabIndex = 3;
             this.StartQuantity.Text = "121";
             this.StartQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,10 +120,9 @@
             // 
             this.StartValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StartValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StartValue.Location = new System.Drawing.Point(377, 0);
-            this.StartValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.StartValue.Location = new System.Drawing.Point(283, 0);
             this.StartValue.Name = "StartValue";
-            this.StartValue.Size = new System.Drawing.Size(61, 50);
+            this.StartValue.Size = new System.Drawing.Size(46, 41);
             this.StartValue.TabIndex = 4;
             this.StartValue.Text = "12,50";
             this.StartValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,10 +131,9 @@
             // 
             this.ComingQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComingQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ComingQuantity.Location = new System.Drawing.Point(446, 0);
-            this.ComingQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ComingQuantity.Location = new System.Drawing.Point(335, 0);
             this.ComingQuantity.Name = "ComingQuantity";
-            this.ComingQuantity.Size = new System.Drawing.Size(61, 50);
+            this.ComingQuantity.Size = new System.Drawing.Size(46, 41);
             this.ComingQuantity.TabIndex = 5;
             this.ComingQuantity.Text = "10";
             this.ComingQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,10 +142,9 @@
             // 
             this.ComingValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ComingValue.Location = new System.Drawing.Point(515, 0);
-            this.ComingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ComingValue.Location = new System.Drawing.Point(387, 0);
             this.ComingValue.Name = "ComingValue";
-            this.ComingValue.Size = new System.Drawing.Size(61, 50);
+            this.ComingValue.Size = new System.Drawing.Size(46, 41);
             this.ComingValue.TabIndex = 6;
             this.ComingValue.Text = "25,99";
             this.ComingValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -158,10 +153,9 @@
             // 
             this.WarehouseQuantity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WarehouseQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.WarehouseQuantity.Location = new System.Drawing.Point(722, 0);
-            this.WarehouseQuantity.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.WarehouseQuantity.Location = new System.Drawing.Point(543, 0);
             this.WarehouseQuantity.Name = "WarehouseQuantity";
-            this.WarehouseQuantity.Size = new System.Drawing.Size(53, 50);
+            this.WarehouseQuantity.Size = new System.Drawing.Size(40, 41);
             this.WarehouseQuantity.TabIndex = 9;
             this.WarehouseQuantity.Text = "5";
             this.WarehouseQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -170,10 +164,9 @@
             // 
             this.OutgoingValue.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutgoingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OutgoingValue.Location = new System.Drawing.Point(653, 0);
-            this.OutgoingValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.OutgoingValue.Location = new System.Drawing.Point(491, 0);
             this.OutgoingValue.Name = "OutgoingValue";
-            this.OutgoingValue.Size = new System.Drawing.Size(61, 50);
+            this.OutgoingValue.Size = new System.Drawing.Size(46, 41);
             this.OutgoingValue.TabIndex = 8;
             this.OutgoingValue.Text = "12,30";
             this.OutgoingValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -182,10 +175,10 @@
             // 
             this.Type.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Type.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Type.Location = new System.Drawing.Point(235, 0);
+            this.Type.Location = new System.Drawing.Point(176, 0);
             this.Type.Margin = new System.Windows.Forms.Padding(0);
             this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(69, 50);
+            this.Type.Size = new System.Drawing.Size(52, 41);
             this.Type.TabIndex = 2;
             this.Type.Text = "szt";
             this.Type.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -194,10 +187,9 @@
             // 
             this.ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ProductName.Location = new System.Drawing.Point(51, 0);
-            this.ProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ProductName.Location = new System.Drawing.Point(38, 0);
             this.ProductName.Name = "ProductName";
-            this.ProductName.Size = new System.Drawing.Size(180, 50);
+            this.ProductName.Size = new System.Drawing.Size(135, 41);
             this.ProductName.TabIndex = 11;
             this.ProductName.Text = "Nazwa Produktu";
             this.ProductName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -205,28 +197,45 @@
             // RemoveButton
             // 
             this.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RemoveButton.BackColor = System.Drawing.SystemColors.Info;
+            this.RemoveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.RemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RemoveButton.Location = new System.Drawing.Point(867, 6);
+            this.RemoveButton.Location = new System.Drawing.Point(651, 5);
             this.RemoveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.RemoveButton.MaximumSize = new System.Drawing.Size(80, 49);
-            this.RemoveButton.MinimumSize = new System.Drawing.Size(53, 31);
+            this.RemoveButton.MaximumSize = new System.Drawing.Size(60, 40);
+            this.RemoveButton.MinimumSize = new System.Drawing.Size(40, 25);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(53, 37);
+            this.RemoveButton.Size = new System.Drawing.Size(40, 30);
             this.RemoveButton.TabIndex = 11;
             this.RemoveButton.Text = "X";
             this.RemoveButton.UseVisualStyleBackColor = false;
             this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
+            // EditButton
+            // 
+            this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EditButton.BackColor = System.Drawing.SystemColors.Info;
+            this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditButton.Location = new System.Drawing.Point(594, 5);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EditButton.MaximumSize = new System.Drawing.Size(60, 40);
+            this.EditButton.MinimumSize = new System.Drawing.Size(40, 25);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(40, 30);
+            this.EditButton.TabIndex = 12;
+            this.EditButton.Text = "Edit";
+            this.EditButton.UseVisualStyleBackColor = false;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
             // DataSlice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
+            this.MinimumSize = new System.Drawing.Size(500, 30);
             this.Name = "DataSlice";
-            this.Size = new System.Drawing.Size(933, 50);
+            this.Size = new System.Drawing.Size(700, 41);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -248,5 +257,6 @@
         private System.Windows.Forms.Label ProductName;
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.Button EditButton;
     }
 }
