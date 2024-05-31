@@ -83,25 +83,7 @@ namespace Generator_Spisu.Classes
         }
 
 
-        private static List<string> _columnHeaders = new List<string>
-          {
-            "Id",
-            "Towar",
-            "J.M.",
-            "Ilość",
-            "Wartość",
-            "Ilość",
-            "Wartość",
-            "Ilość",
-            "Wartość",
-            "Magazyn"
-          };
-
-
-        public static List<string> ColumnHeaders
-        {
-            get { return _columnHeaders; }
-        }
+      
 
 
         public Product()
@@ -138,7 +120,7 @@ namespace Generator_Spisu.Classes
 
         public string ToCSV()
         {
-            return this._id + ";" + this._productname + ";" + this._type + ";" + this._startquantity + ";" + this._startvalue + ";" + this._comingquantity + ";" + this._comingvalue + ";" + this._outgoingquantity + ";" + this._outgoingvalue + ";" + this._warehousequantity;
+            return this._productname + ";" + this._type + ";" + this._startquantity + ";" + this._startvalue + ";" + this._comingquantity + ";" + this._comingvalue + ";" + this._outgoingquantity + ";" + this._outgoingvalue + ";" + this._warehousequantity;
         }
 
     }

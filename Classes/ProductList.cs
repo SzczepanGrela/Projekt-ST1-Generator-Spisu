@@ -78,6 +78,30 @@ namespace Generator_Spisu.Classes
         }
 
 
+        public static int GetNextId()
+        {
+            if (_products.Count == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                int i;
+                for(i=1; i<= _products.Count; i++)
+                {
+                    if (_products.Any(p => p.Id == i))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return i;
+                    }
+                }
+                return i;
+            }
+        }   
+
         public static string[] GetProductCsvList()
         {
             string[] productsCSV = new string[_products.Count];
@@ -115,13 +139,14 @@ namespace Generator_Spisu.Classes
 
             PropertyInfo[] properties = typeof(Product).GetProperties();
 
-            for (int i = 0; i < properties.Length && i < parts.Length; i++)
+            for (int i = 1; i < properties.Length; i++)
             {
+                properties[0].SetValue(product, GetNextId());
 
                 if (properties[i].PropertyType == typeof(int))
                 {
                     
-                    if (int.TryParse(parts[i], out int intValue))
+                    if (int.TryParse(parts[i-1], out int intValue))
                     {
                         
                         properties[i].SetValue(product, intValue);
@@ -136,7 +161,7 @@ namespace Generator_Spisu.Classes
                 else if (properties[i].PropertyType == typeof(string))
                 {
                     
-                    properties[i].SetValue(product, parts[i]);
+                    properties[i].SetValue(product, parts[i-1]);
                 }
                 else
                 {

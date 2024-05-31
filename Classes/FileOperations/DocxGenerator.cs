@@ -2,13 +2,22 @@
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using JsonAttributeSettingss;
 
 namespace Generator_Spisu.Classes.FileOperations
 {
     internal class DocxGenerator
     {
-        public void GenerateDocument(string filePath, List<List<object>> data, List<string> columnHeaders)
+        public void GenerateDocument(string filePath, List<List<object>> data, string settingsPath)
         {
+            JsonConfigLoader loader = new JsonConfigLoader();
+            Config config = loader.LoadConfig(settingsPath);
+
+
+            List<string> columnHeaders = config.Settings.ColumnHeaders;
+            List<string> columnWidths = config.Settings.ColumnWidths;
+
+
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))
             {
                 MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
@@ -17,7 +26,6 @@ namespace Generator_Spisu.Classes.FileOperations
 
                 Table table = new Table();
 
-                
                 TableProperties tableProperties = new TableProperties(
                     new TableWidth { Width = "5000", Type = TableWidthUnitValues.Pct },
                     new TableIndentation { Width = 0, Type = TableWidthUnitValues.Dxa },
@@ -27,30 +35,27 @@ namespace Generator_Spisu.Classes.FileOperations
 
                 table.AppendChild(tableProperties);
 
-                
-                AddTableHeader(table, columnHeaders);
-
+                AddTableHeader(table, columnHeaders, columnWidths);
                 AddTableBorders(table);
 
-                // Add rows to the table
                 foreach (var rowData in data)
                 {
-                    AddTableRow(table, rowData);
+                    AddTableRow(table, rowData, columnWidths);
                 }
 
                 body.Append(table);
             }
         }
 
-        private void AddTableHeader(Table table, List<string> columnHeaders)
+        private void AddTableHeader(Table table, List<string> columnHeaders, List<string> columnWidths)
         {
             TableRow headerRow = new TableRow();
 
-            foreach (string headerText in columnHeaders)
+            for (int i = 0; i < columnHeaders.Count; i++)
             {
                 TableCell headerCell = new TableCell();
-                Paragraph headerParagraph = new Paragraph(new Run(new Text(headerText)));
-                headerCell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                Paragraph headerParagraph = new Paragraph(new Run(new Text(columnHeaders[i])));
+                headerCell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = columnWidths[i] }));
                 headerCell.Append(headerParagraph);
                 headerRow.Append(headerCell);
             }
@@ -58,15 +63,15 @@ namespace Generator_Spisu.Classes.FileOperations
             table.Append(headerRow);
         }
 
-        private void AddTableRow(Table table, List<object> rowData)
+        private void AddTableRow(Table table, List<object> rowData, List<string> columnWidths)
         {
             TableRow row = new TableRow();
 
-            foreach (var cellData in rowData)
+            for (int i = 0; i < rowData.Count; i++)
             {
                 TableCell cell = new TableCell();
-                Paragraph paragraph = new Paragraph(new Run(new Text(cellData.ToString())));
-                cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Auto }));
+                Paragraph paragraph = new Paragraph(new Run(new Text(rowData[i].ToString())));
+                cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = columnWidths[i] }));
                 cell.Append(paragraph);
                 row.Append(cell);
             }
@@ -74,10 +79,8 @@ namespace Generator_Spisu.Classes.FileOperations
             table.Append(row);
         }
 
-
         private void AddTableBorders(Table table)
         {
-            // Add table borders
             TableBorders tableBorders = new TableBorders(
                 new TopBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
                 new BottomBorder { Val = new EnumValue<BorderValues>(BorderValues.Single), Size = 12 },
@@ -89,6 +92,5 @@ namespace Generator_Spisu.Classes.FileOperations
 
             table.GetFirstChild<TableProperties>().Append(tableBorders);
         }
-
     }
 }

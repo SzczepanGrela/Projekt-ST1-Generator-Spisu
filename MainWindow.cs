@@ -12,6 +12,8 @@ using Generator_Spisu.Classes.FileOperations;
 using Generator_Spisu.UserControls;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.interfaces;
+using System.Text.Json;
+using System.Reflection;
 
 
 
@@ -225,6 +227,12 @@ namespace Generator_Spisu
 
         private void stwórzDocxToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (ProductList.GetProductsCount() < 1)
+            {
+                MessageBox.Show("Nie ma nic do generowania");
+                return;
+            }
+
             DocxGenerator docxGenerator = new DocxGenerator();
 
             string savePath = GetSaveFilePathDocx();
@@ -232,9 +240,9 @@ namespace Generator_Spisu
             if (savePath != null)
             {
 
-                List <string > columnHeaders = Product.ColumnHeaders;
+                string settingsPath = "../../Settings/Attributes.json";
                
-                docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), columnHeaders);
+                docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), settingsPath);
             }
         }
     }

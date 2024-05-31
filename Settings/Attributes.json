@@ -1,0 +1,17 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "settings": {
+    "columnHeaders": [ "Id", "Towar", "J.M.", "Ilość", "Wartość", "Ilość", "Wartość","Ilość","Wartość", "Magazyn" ],
+    "columnWidths": [ "200", "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
+    "headerFontSize": "12",
+    "headerFontColor": "#000000"
+    
+  }
+}

@@ -50,7 +50,7 @@
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.tableLayoutPanel1.ColumnCount = 10;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0002F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0001F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0001F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.0001F));
@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1067, 69);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 56);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -83,10 +83,10 @@
             // 
             this.WarehouseQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.WarehouseQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.WarehouseQuantity.Location = new System.Drawing.Point(872, 19);
+            this.WarehouseQuantity.Location = new System.Drawing.Point(650, 15);
             this.WarehouseQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.WarehouseQuantity.Name = "WarehouseQuantity";
-            this.WarehouseQuantity.Size = new System.Drawing.Size(94, 30);
+            this.WarehouseQuantity.Size = new System.Drawing.Size(69, 26);
             this.WarehouseQuantity.TabIndex = 8;
             this.WarehouseQuantity.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
@@ -94,10 +94,10 @@
             // 
             this.OutgoingValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.OutgoingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OutgoingValue.Location = new System.Drawing.Point(775, 19);
+            this.OutgoingValue.Location = new System.Drawing.Point(578, 15);
             this.OutgoingValue.Margin = new System.Windows.Forms.Padding(0);
             this.OutgoingValue.Name = "OutgoingValue";
-            this.OutgoingValue.Size = new System.Drawing.Size(94, 30);
+            this.OutgoingValue.Size = new System.Drawing.Size(69, 26);
             this.OutgoingValue.TabIndex = 7;
             this.OutgoingValue.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
@@ -105,10 +105,10 @@
             // 
             this.OutgoingQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.OutgoingQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OutgoingQuantity.Location = new System.Drawing.Point(678, 19);
+            this.OutgoingQuantity.Location = new System.Drawing.Point(506, 15);
             this.OutgoingQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.OutgoingQuantity.Name = "OutgoingQuantity";
-            this.OutgoingQuantity.Size = new System.Drawing.Size(94, 30);
+            this.OutgoingQuantity.Size = new System.Drawing.Size(69, 26);
             this.OutgoingQuantity.TabIndex = 6;
             this.OutgoingQuantity.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
@@ -116,10 +116,10 @@
             // 
             this.ComingValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ComingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ComingValue.Location = new System.Drawing.Point(581, 19);
+            this.ComingValue.Location = new System.Drawing.Point(434, 15);
             this.ComingValue.Margin = new System.Windows.Forms.Padding(0);
             this.ComingValue.Name = "ComingValue";
-            this.ComingValue.Size = new System.Drawing.Size(94, 30);
+            this.ComingValue.Size = new System.Drawing.Size(69, 26);
             this.ComingValue.TabIndex = 5;
             this.ComingValue.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -127,10 +127,10 @@
             // 
             this.ComingQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ComingQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ComingQuantity.Location = new System.Drawing.Point(484, 19);
+            this.ComingQuantity.Location = new System.Drawing.Point(362, 15);
             this.ComingQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.ComingQuantity.Name = "ComingQuantity";
-            this.ComingQuantity.Size = new System.Drawing.Size(94, 30);
+            this.ComingQuantity.Size = new System.Drawing.Size(69, 26);
             this.ComingQuantity.TabIndex = 4;
             this.ComingQuantity.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -138,10 +138,10 @@
             // 
             this.StartValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.StartValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StartValue.Location = new System.Drawing.Point(387, 19);
+            this.StartValue.Location = new System.Drawing.Point(290, 15);
             this.StartValue.Margin = new System.Windows.Forms.Padding(0);
             this.StartValue.Name = "StartValue";
-            this.StartValue.Size = new System.Drawing.Size(94, 30);
+            this.StartValue.Size = new System.Drawing.Size(69, 26);
             this.StartValue.TabIndex = 3;
             this.StartValue.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -149,10 +149,10 @@
             // 
             this.StartQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.StartQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StartQuantity.Location = new System.Drawing.Point(290, 19);
+            this.StartQuantity.Location = new System.Drawing.Point(218, 15);
             this.StartQuantity.Margin = new System.Windows.Forms.Padding(0);
             this.StartQuantity.Name = "StartQuantity";
-            this.StartQuantity.Size = new System.Drawing.Size(94, 30);
+            this.StartQuantity.Size = new System.Drawing.Size(69, 26);
             this.StartQuantity.TabIndex = 2;
             this.StartQuantity.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -160,10 +160,10 @@
             // 
             this.ProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ProductName.Location = new System.Drawing.Point(3, 19);
+            this.ProductName.Location = new System.Drawing.Point(3, 15);
             this.ProductName.Margin = new System.Windows.Forms.Padding(0);
             this.ProductName.Name = "ProductName";
-            this.ProductName.Size = new System.Drawing.Size(188, 30);
+            this.ProductName.Size = new System.Drawing.Size(139, 26);
             this.ProductName.TabIndex = 1;
             this.ProductName.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
@@ -171,12 +171,12 @@
             // 
             this.OkButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OkButton.BackColor = System.Drawing.SystemColors.Info;
-            this.OkButton.Location = new System.Drawing.Point(978, 11);
+            this.OkButton.Location = new System.Drawing.Point(730, 9);
             this.OkButton.Margin = new System.Windows.Forms.Padding(0);
-            this.OkButton.MaximumSize = new System.Drawing.Size(80, 49);
-            this.OkButton.MinimumSize = new System.Drawing.Size(67, 37);
+            this.OkButton.MaximumSize = new System.Drawing.Size(60, 40);
+            this.OkButton.MinimumSize = new System.Drawing.Size(50, 30);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(77, 46);
+            this.OkButton.Size = new System.Drawing.Size(58, 37);
             this.OkButton.TabIndex = 9;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = false;
@@ -191,11 +191,11 @@
             this.Type.Items.AddRange(new object[] {
             "Kg",
             "L",
-            "Szt"});
-            this.Type.Location = new System.Drawing.Point(194, 18);
+            "Szt."});
+            this.Type.Location = new System.Drawing.Point(145, 14);
             this.Type.Margin = new System.Windows.Forms.Padding(0);
             this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(93, 33);
+            this.Type.Size = new System.Drawing.Size(70, 28);
             this.Type.TabIndex = 0;
             this.Type.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -205,14 +205,14 @@
             // 
             // DataInsertSlice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MinimumSize = new System.Drawing.Size(1067, 69);
+            this.MinimumSize = new System.Drawing.Size(800, 56);
             this.Name = "DataInsertSlice";
-            this.Size = new System.Drawing.Size(1067, 69);
+            this.Size = new System.Drawing.Size(800, 56);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

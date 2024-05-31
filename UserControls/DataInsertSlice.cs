@@ -45,7 +45,9 @@ namespace Generator_Spisu.UserControls
                 }
                 else
                 {
-                    addProductToList();
+                    AreBoxesEmpty();
+                    AreBoxesCorrect();
+                    AddProductToList();
                     ClearBoxes();
                 }
             }
@@ -59,38 +61,27 @@ namespace Generator_Spisu.UserControls
         }
 
 
-        private void addProductToList()
+        private void AddProductToList()
         {
-            try
-            {
-                AreBoxesEmpty();
 
-                AreBoxesCorrect();
+            int availableId = ProductList.GetNextId();
 
-                Product product = GenerateProduct();
+            Product product = GenerateProduct(availableId);
 
-                ProductList.AddProductToList(product);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
+            ProductList.AddProductToList(product);
 
 
-            
         }
 
 
 
-        private Product GenerateProduct(int hiddenid = 0)
+        private Product GenerateProduct(int newProductId)
         {
-            
+
 
             Product product = new Product();
-            if (hiddenid == 0) product.Id = ProductList.GetProductsCount() + 1;
-            else product.Id = hiddenid;
+
+            product.Id = newProductId;
             product.ProductName = this.ProductName.Text;
             product.Type = this.Type.Text;
             product.StartQuantity = int.Parse(this.StartQuantity.Text);

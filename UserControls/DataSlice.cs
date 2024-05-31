@@ -25,7 +25,7 @@ namespace Generator_Spisu.UserControls
             InitializeComponent();
             this.Dock = DockStyle.Top;
 
-
+           // this.Width = 
             this.Load += new EventHandler(DataSlice_Load);
 
         }
