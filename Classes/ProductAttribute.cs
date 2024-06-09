@@ -11,13 +11,17 @@ namespace Generator_Spisu.Classes
 
        private string _name;
 
-       private Type _type;
+       private AttributeType _type;
+
+       private bool _canBeEmpty;
 
 
-        public ProductAttribute(string name, Type type)
+        public ProductAttribute(string name, AttributeType type, bool canBeEmpty)
         {
             _name = name;
             _type = type;
+            _canBeEmpty = canBeEmpty;
+           
         }
 
         public string Name
@@ -26,11 +30,18 @@ namespace Generator_Spisu.Classes
             set { _name = value; }
         }
 
-        public Type Type
+        public AttributeType Type
         {
             get { return _type; }
             set { _type = value; }
         }
+
+        public bool CanBeEmpty
+        {
+            get { return _canBeEmpty; }
+            set { _canBeEmpty = value; }
+        }
+
 
         public override bool Equals(object obj)   // i override Equals method to compare two attributes
         {
@@ -56,7 +67,7 @@ namespace Generator_Spisu.Classes
 
     }
 
-    public enum Type
+    public enum AttributeType
     {
         String,
         Int,

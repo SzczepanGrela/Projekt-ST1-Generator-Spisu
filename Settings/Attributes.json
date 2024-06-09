@@ -8,10 +8,60 @@
     "**/platforms"
   ],
   "settings": {
-    "columnHeaders": [ "Id", "Towar", "J.M.", "Ilość", "Wartość", "Ilość", "Wartość","Ilość","Wartość", "Magazyn" ],
     "columnWidths": [ "200", "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
     "headerFontSize": "12",
-    "headerFontColor": "#000000"
-    
+    "headerFontColor": "#000000",
+    "attributes": [
+      {
+        "name": "Id",
+        "type": "int",
+        "allowNull": false
+      },
+      {
+        "name": "Towar",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "J.M.",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "Ilość",
+        "type": "int",
+        "allowNull": false
+      },
+      {
+        "name": "Wartość",
+        "type": "double",
+        "allowNull": false
+      },
+      {
+        "name": "Ilość",
+        "type": "int",
+        "allowNull": false
+      },
+      {
+        "name": "Wartość",
+        "type": "double",
+        "allowNull": false
+      },
+      {
+        "name": "Ilość",
+        "type": "int",
+        "allowNull": false
+      },
+      {
+        "name": "Wartość",
+        "type": "double",
+        "allowNull": false
+      },
+      {
+        "name": "Magazyn",
+        "type": "int",
+        "allowNull": false
+      }
+    ]
   }
 }

@@ -15,6 +15,7 @@ using WindowsFormsApp1.interfaces;
 using System.Text.Json;
 using System.Reflection;
 using DocumentFormat.OpenXml.Drawing;
+using Generator_Spisu.Forms;
 
 
 
@@ -249,7 +250,8 @@ namespace Generator_Spisu
 
         private void atrybutyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            PropertySettings propertySettingsForm = new PropertySettings();
+            propertySettingsForm.ShowDialog();
         }
 
         private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -261,5 +263,10 @@ namespace Generator_Spisu
             }
             ClearEverything();
         }
+
+       
+
+
+
     }
 }

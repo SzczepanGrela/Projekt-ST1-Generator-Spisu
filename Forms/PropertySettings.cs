@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Generator_Spisu.Classes;
+using Generator_Spisu.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -64,17 +66,53 @@ namespace Generator_Spisu.Forms
 
         private void SaveSettingsButton_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
+
+
+            try
             {
-                if (control is ComboBox)
+                List<ProductAttribute> attributes = new List<ProductAttribute>();
+
+                foreach (AttributeSlice slice in this.SlicePanel.Controls)
                 {
-                    ComboBox comboBox = (ComboBox)control;
-                    if (comboBox.SelectedIndex != -1)
-                    {
-                        Properties.Settings.Default[comboBox.Name] = comboBox.SelectedIndex;
-                    }
+                    bool unchangedName = slice.GetAttributeName() == "Przykładowa Nazwa";
+                    
+                    if (unchangedName) throw new Exception("Przynajmniej jeden nienazwany atrybut");
+
+                    attributes.Append(slice.GetAttribute());
+
                 }
+
+                AttributeList.SetAttributes(attributes);
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
+        private void MessageLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void attributeSlice1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addSliceButton_Click(object sender, EventArgs e)
+        {
+            AttributeSlice newSlice = new AttributeSlice();
+
+            newSlice.Dock = DockStyle.Top;
+            newSlice.Visible = true;
+            this.SlicePanel.Controls.Add(newSlice);
+        }
+
+
+        
     }
 }

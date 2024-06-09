@@ -2,7 +2,7 @@
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
-using JsonAttributeSettingss;
+using JsonFileOperations;
 
 namespace Generator_Spisu.Classes.FileOperations
 {
@@ -14,8 +14,8 @@ namespace Generator_Spisu.Classes.FileOperations
             Config config = loader.LoadConfig(settingsPath);
 
 
-            List<string> columnHeaders = config.Settings.ColumnHeaders;
-            List<string> columnWidths = config.Settings.ColumnWidths;
+            List<string> columnHeaders = config.settings.GetColumnHeaders();
+            List<string> columnWidths = config.settings.ColumnWidths;
 
 
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))

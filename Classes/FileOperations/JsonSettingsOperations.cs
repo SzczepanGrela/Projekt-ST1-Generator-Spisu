@@ -6,18 +6,38 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace JsonAttributeSettingss
+namespace JsonFileOperations
 {
-    public class JsonAttributeSettings
+   
+
+    public class Attribute
     {
-        public List<string> ColumnHeaders { get; set; }
-        public List<string> ColumnWidths { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public bool AllowNull { get; set; }
     }
+
+    public class JsonSettingsOperations
+    {
+        
+        public List<string> ColumnWidths { get; set; }
+        public string HeaderFontSize { get; set; }
+        public string HeaderFontColor { get; set; }
+        public List<Attribute> Attributes { get; set; }
+
+        public List<string> GetColumnHeaders()
+        {
+            return Attributes.ConvertAll(x => x.Name);
+        }
+    }
+
+
 
     public class Config
     {
-        public List<string> Exclude { get; set; }
-        public JsonAttributeSettings Settings { get; set; }
+        public JsonSettingsOperations settings { get; set; }
+
+        
     }
 
     public class JsonConfigLoader
@@ -32,4 +52,7 @@ namespace JsonAttributeSettingss
             return JsonSerializer.Deserialize<Config>(jsonString, options);
         }
     }
+
+    
+
 }
