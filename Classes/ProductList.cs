@@ -16,7 +16,7 @@ namespace Generator_Spisu.Classes
             _products.Clear();
         }
 
-        public static void AddProductToList(Product product)
+        public static void AddProductToList(DynamicProduct product)
         {
             _products.Add(product);
 
@@ -57,7 +57,7 @@ namespace Generator_Spisu.Classes
 
         
 
-        private static void OnProductAdded(Product product)
+        private static void OnProductAdded(DynamicProduct product)
         {
             ProductAdded?.Invoke(null, new ProductAddedEventArgs(product));
         }
@@ -97,7 +97,7 @@ namespace Generator_Spisu.Classes
             for(int i=0;i<_products.Count;i++)
             {
 
-                productsCSV[i] = _products[i].ToCSV();
+                productsCSV[i] = _products[i].ToCSVline();
                 
             }
 
@@ -123,7 +123,7 @@ namespace Generator_Spisu.Classes
         {
             string[] parts = line.Split(';');
 
-            Product product = new Product();
+            DynamicProduct product = new DynamicProduct();
 
             PropertyInfo[] properties = typeof(Product).GetProperties();
 
@@ -168,9 +168,9 @@ namespace Generator_Spisu.Classes
 
     public class ProductAddedEventArgs : EventArgs
     {
-        public Product Product { get; }
+        public DynamicProduct Product { get; }
 
-        public ProductAddedEventArgs(Product product)
+        public ProductAddedEventArgs(DynamicProduct product)
         {
             Product = product;
         }

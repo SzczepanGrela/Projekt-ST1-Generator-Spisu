@@ -51,6 +51,9 @@ namespace Generator_Spisu.Classes
             return $"Nazwa: {Name}, typ: ({Type})";
         }
 
+
+    
+
     }
 
     public enum Type

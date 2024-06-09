@@ -33,7 +33,7 @@ namespace Generator_Spisu.UserControls
                 if (EditMode)
                 {
 
-                    Product product = GenerateProduct(hiddenId);
+                    DynamicProduct product = GenerateProduct(hiddenId);
 
                     ProductList.EditProductInList(product);
 
@@ -66,7 +66,7 @@ namespace Generator_Spisu.UserControls
 
             int availableId = ProductList.GetNextId();
 
-            Product product = GenerateProduct(availableId);
+            DynamicProduct product = GenerateProduct(availableId);
 
             ProductList.AddProductToList(product);
 
@@ -75,24 +75,34 @@ namespace Generator_Spisu.UserControls
 
 
 
-        private Product GenerateProduct(int newProductId)
+        private DynamicProduct GenerateProduct(int newProductId)
         {
+            List<string> values = getValues();
 
+            DynamicProduct product = new DynamicProduct(values);
 
-            Product product = new Product();
-
-            product.Id = newProductId;
-            product.ProductName = this.ProductName.Text;
-            product.Type = this.Type.Text;
-            product.StartQuantity = int.Parse(this.StartQuantity.Text);
-            product.StartValue = this.StartValue.Text;
-            product.ComingQuantity = int.Parse(this.ComingQuantity.Text);
-            product.ComingValue = this.ComingValue.Text;
-            product.OutgoingQuantity = int.Parse(this.OutgoingQuantity.Text);
-            product.OutgoingValue = this.OutgoingValue.Text;
-            product.WarehouseQuantity = int.Parse(this.WarehouseQuantity.Text);
+            
 
             return product;
+        }
+
+        private List<String> getValues()
+        {
+            List<String> values = new List<String>();
+
+            foreach (Control c in this.tableLayoutPanel1.Controls)
+            {
+                if (c is TextBox)
+                {
+                    values.Add(c.Text);
+                }
+                else if (c is ComboBox)
+                {
+                    values.Add(((ComboBox)c).SelectedItem.ToString());
+                }
+            }
+
+            return values;
         }
 
 
@@ -190,15 +200,7 @@ namespace Generator_Spisu.UserControls
 
         private void FillBoxes(Product product)
         {
-            this.ProductName.Text = product.ProductName;
-            this.Type.Text = product.Type;
-            this.StartQuantity.Text = product.StartQuantity.ToString();
-            this.StartValue.Text = product.StartValue;
-            this.ComingQuantity.Text = product.ComingQuantity.ToString();
-            this.ComingValue.Text = product.ComingValue;
-            this.OutgoingQuantity.Text = product.OutgoingQuantity.ToString();
-            this.OutgoingValue.Text = product.OutgoingValue;
-            this.WarehouseQuantity.Text = product.WarehouseQuantity.ToString();
+            throw new NotImplementedException("Not impllemented exception");
         }
 
         private void SwitchToEditMode()
@@ -291,9 +293,9 @@ namespace Generator_Spisu.UserControls
 
     public class ProductEditedEventArgs : EventArgs
     {
-        public Product Product { get; }
+        public DynamicProduct Product { get; }
 
-        public ProductEditedEventArgs(Product product)
+        public ProductEditedEventArgs(DynamicProduct product)
         {
             Product = product;
         }

@@ -16,10 +16,10 @@ namespace Generator_Spisu.UserControls
     public partial class DataSlice : UserControl
     {
 
-        private Product originProduct;
+        private DynamicProduct originProduct;
 
 
-        public DataSlice(Product product)
+        public DataSlice(DynamicProduct product)
         {
             this.originProduct = product;
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace Generator_Spisu.UserControls
 
         public DataSlice()
         {
-            this.originProduct = new Product();
+            this.originProduct = new DynamicProduct();
             InitializeComponent();
             this.Dock = DockStyle.Top;
             
@@ -57,7 +57,7 @@ namespace Generator_Spisu.UserControls
 
             List<DataSlice> DataSlices = new List<DataSlice>();
 
-            foreach(Product product in ProductList)
+            foreach(DynamicProduct product in ProductList)
             {
                 DataSlices.Add(new DataSlice(product));
             }
@@ -115,7 +115,7 @@ namespace Generator_Spisu.UserControls
             return originProduct;
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(DynamicProduct product)
         {
             originProduct = product;
             FillLabels();
