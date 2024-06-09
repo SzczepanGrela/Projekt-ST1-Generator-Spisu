@@ -86,19 +86,7 @@ namespace Generator_Spisu.Classes
             }
             else
             {
-                int i;
-                for(i=1; i<= _products.Count; i++)
-                {
-                    if (_products.Any(p => p.Id == i))
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        return i;
-                    }
-                }
-                return i;
+                return _products[_products.Count - 1].Id+1;   // returns latest id incremented by 1
             }
         }   
 

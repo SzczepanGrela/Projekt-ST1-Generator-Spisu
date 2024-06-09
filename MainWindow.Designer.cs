@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ColumnNamesPanel = new System.Windows.Forms.Panel();
+            this.dataInsertSlice1 = new Generator_Spisu.UserControls.DataInsertSlice();
             this.SavePanel = new System.Windows.Forms.Panel();
             this.SaveButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -62,7 +63,7 @@
             this.informacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DataSlicePanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.dataInsertSlice1 = new Generator_Spisu.UserControls.DataInsertSlice();
+            this.nowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ColumnNamesPanel.SuspendLayout();
             this.SavePanel.SuspendLayout();
             this.EmptyOrTextPanel.SuspendLayout();
@@ -80,11 +81,23 @@
             this.ColumnNamesPanel.Size = new System.Drawing.Size(784, 62);
             this.ColumnNamesPanel.TabIndex = 1;
             // 
+            // dataInsertSlice1
+            // 
+            this.dataInsertSlice1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataInsertSlice1.BackColor = System.Drawing.SystemColors.Info;
+            this.dataInsertSlice1.Location = new System.Drawing.Point(0, 0);
+            this.dataInsertSlice1.Margin = new System.Windows.Forms.Padding(0);
+            this.dataInsertSlice1.MinimumSize = new System.Drawing.Size(800, 56);
+            this.dataInsertSlice1.Name = "dataInsertSlice1";
+            this.dataInsertSlice1.Size = new System.Drawing.Size(802, 56);
+            this.dataInsertSlice1.TabIndex = 0;
+            this.dataInsertSlice1.Load += new System.EventHandler(this.dataInsertSlice1_Load);
+            // 
             // SavePanel
             // 
             this.SavePanel.Controls.Add(this.SaveButton);
             this.SavePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SavePanel.Location = new System.Drawing.Point(0, 395);
+            this.SavePanel.Location = new System.Drawing.Point(0, 394);
             this.SavePanel.Margin = new System.Windows.Forms.Padding(0);
             this.SavePanel.Name = "SavePanel";
             this.SavePanel.Size = new System.Drawing.Size(784, 66);
@@ -95,7 +108,7 @@
             this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SaveButton.BackColor = System.Drawing.Color.Silver;
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SaveButton.Location = new System.Drawing.Point(332, 16);
+            this.SaveButton.Location = new System.Drawing.Point(333, 16);
             this.SaveButton.MaximumSize = new System.Drawing.Size(180, 90);
             this.SaveButton.MinimumSize = new System.Drawing.Size(60, 30);
             this.SaveButton.Name = "SaveButton";
@@ -282,6 +295,7 @@
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nowyToolStripMenuItem,
             this.zapiszToolStripMenuItem,
             this.zapiszToolStripMenuItem1,
             this.zapiszJakoToolStripMenuItem,
@@ -294,35 +308,35 @@
             // zapiszToolStripMenuItem
             // 
             this.zapiszToolStripMenuItem.Name = "zapiszToolStripMenuItem";
-            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.zapiszToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zapiszToolStripMenuItem.Text = "Otwórz";
             this.zapiszToolStripMenuItem.Click += new System.EventHandler(this.otwórzToolStripMenuItem_Click);
             // 
             // zapiszToolStripMenuItem1
             // 
             this.zapiszToolStripMenuItem1.Name = "zapiszToolStripMenuItem1";
-            this.zapiszToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.zapiszToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.zapiszToolStripMenuItem1.Text = "Zapisz";
             this.zapiszToolStripMenuItem1.Click += new System.EventHandler(this.zapiszToolStripMenuItem_Click);
             // 
             // zapiszJakoToolStripMenuItem
             // 
             this.zapiszJakoToolStripMenuItem.Name = "zapiszJakoToolStripMenuItem";
-            this.zapiszJakoToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.zapiszJakoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zapiszJakoToolStripMenuItem.Text = "Zapisz jako";
             this.zapiszJakoToolStripMenuItem.Click += new System.EventHandler(this.zapiszJakoToolStripMenuItem_Click);
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
             this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
             // wyczyśćToolStripMenuItem
             // 
             this.wyczyśćToolStripMenuItem.Name = "wyczyśćToolStripMenuItem";
-            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.wyczyśćToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wyczyśćToolStripMenuItem.Text = "Wyczyść";
             this.wyczyśćToolStripMenuItem.Click += new System.EventHandler(this.wyczyśćToolStripMenuItem_Click);
             // 
@@ -354,6 +368,7 @@
             this.atrybutyToolStripMenuItem.Name = "atrybutyToolStripMenuItem";
             this.atrybutyToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.atrybutyToolStripMenuItem.Text = "Atrybuty";
+            this.atrybutyToolStripMenuItem.Click += new System.EventHandler(this.atrybutyToolStripMenuItem_Click);
             // 
             // oAplikacjiToolStripMenuItem
             // 
@@ -378,11 +393,11 @@
             this.tableLayoutPanel1.Controls.Add(this.DataSlicePanel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 156);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 239);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(784, 238);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // DataSlicePanel
@@ -393,34 +408,29 @@
             this.DataSlicePanel.Location = new System.Drawing.Point(22, 0);
             this.DataSlicePanel.Margin = new System.Windows.Forms.Padding(0);
             this.DataSlicePanel.Name = "DataSlicePanel";
-            this.DataSlicePanel.Size = new System.Drawing.Size(740, 239);
+            this.DataSlicePanel.Size = new System.Drawing.Size(740, 238);
             this.DataSlicePanel.TabIndex = 0;
             this.DataSlicePanel.WrapContents = false;
             // 
-            // dataInsertSlice1
+            // nowyToolStripMenuItem
             // 
-            this.dataInsertSlice1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataInsertSlice1.BackColor = System.Drawing.SystemColors.Info;
-            this.dataInsertSlice1.Location = new System.Drawing.Point(0, 0);
-            this.dataInsertSlice1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataInsertSlice1.MinimumSize = new System.Drawing.Size(800, 56);
-            this.dataInsertSlice1.Name = "dataInsertSlice1";
-            this.dataInsertSlice1.Size = new System.Drawing.Size(800, 56);
-            this.dataInsertSlice1.TabIndex = 0;
-            this.dataInsertSlice1.Load += new System.EventHandler(this.dataInsertSlice1_Load);
+            this.nowyToolStripMenuItem.Name = "nowyToolStripMenuItem";
+            this.nowyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nowyToolStripMenuItem.Text = "Nowy";
+            this.nowyToolStripMenuItem.Click += new System.EventHandler(this.nowyToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(784, 460);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.SavePanel);
             this.Controls.Add(this.ColumnNamesPanel);
             this.Controls.Add(this.EmptyOrTextPanel);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(800, 500);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.MaximumSize = new System.Drawing.Size(800, 499);
+            this.MinimumSize = new System.Drawing.Size(800, 499);
             this.Name = "MainWindow";
             this.Text = "Generator Spisu";
             this.ColumnNamesPanel.ResumeLayout(false);
@@ -469,6 +479,7 @@
         private System.Windows.Forms.ToolStripMenuItem wyczyśćToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ustawieniaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atrybutyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nowyToolStripMenuItem;
     }
 }
 

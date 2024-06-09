@@ -14,6 +14,7 @@ using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.interfaces;
 using System.Text.Json;
 using System.Reflection;
+using DocumentFormat.OpenXml.Drawing;
 
 
 
@@ -244,6 +245,21 @@ namespace Generator_Spisu
                
                 docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), settingsPath);
             }
+        }
+
+        private void atrybutyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr =  GetSaveFilePath();
+            if (dr == DialogResult.Cancel )
+            {
+                return;
+            }
+            ClearEverything();
         }
     }
 }

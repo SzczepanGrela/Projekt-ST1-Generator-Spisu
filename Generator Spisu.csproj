@@ -81,11 +81,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AttributeList.cs" />
+    <Compile Include="Classes\DynamicProduct.cs" />
     <Compile Include="Classes\FileOperations\BasicFileOperations.cs" />
     <Compile Include="Classes\FileOperations\CsvFileOperations.cs" />
     <Compile Include="Classes\FileOperations\DocxGenerator.cs" />
     <Compile Include="Classes\FileOperations\JsonAttributeSettings.cs" />
     <Compile Include="Classes\Product.cs" />
+    <Compile Include="Classes\ProductAttribute.cs" />
     <Compile Include="Classes\ProductList.cs" />
     <Compile Include="Forms\PropertySettings.cs">
       <SubType>Form</SubType>
