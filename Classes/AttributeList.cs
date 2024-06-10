@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Generator_Spisu.Classes.FileOperations;
 using Generator_Spisu.Classes;
 using JsonFileOperations;
+using System.Windows.Forms;
 
 
 
@@ -51,9 +52,28 @@ namespace Generator_Spisu.Classes
         }
 
 
-        public static void SetAttributesFromFile()
+        public static void SetAttributesFromSettings()
         {
-            
+            try
+            {
+                JsonConfigLoader loader = new JsonConfigLoader();
+                Config config = loader.LoadConfig("../../Settings/Attributes.json");
+                List <JsonFileOperations.Attribute> tempAttributes = config.settings.Attributes;
+
+                List<ProductAttribute> productAttributes = new List<ProductAttribute>();
+                foreach (JsonFileOperations.Attribute tempAttribute in tempAttributes)
+                {
+                    ProductAttribute productAttribute = new ProductAttribute(tempAttribute.Name, (AttributeType)Enum.Parse(typeof(AttributeType), tempAttribute.Type), tempAttribute.AllowNull, tempAttribute.EnumValues);
+                    productAttribute.EnumValues = tempAttribute.EnumValues;
+                    productAttributes.Add(productAttribute);
+                }
+                _attributes = productAttributes;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Błąd wczytywania atrybutów z pliku: " + e.Message);
+            }
+
             
         }
 

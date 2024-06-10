@@ -14,52 +14,53 @@
     "attributes": [
       {
         "name": "Id",
-        "type": "int",
+        "type": "Int",
         "allowNull": false
       },
       {
         "name": "Towar",
-        "type": "string",
+        "type": "String",
         "allowNull": false
       },
       {
         "name": "J.M.",
-        "type": "string",
+        "type": "Enum",
+        "enumType": ["Szt","Kg","L"],
         "allowNull": false
       },
       {
         "name": "Ilość",
-        "type": "int",
+        "type": "Int",
         "allowNull": false
       },
       {
         "name": "Wartość",
-        "type": "double",
+        "type": "Double",
         "allowNull": false
       },
       {
         "name": "Ilość",
-        "type": "int",
+        "type": "Int",
         "allowNull": false
       },
       {
         "name": "Wartość",
-        "type": "double",
+        "type": "Double",
         "allowNull": false
       },
       {
         "name": "Ilość",
-        "type": "int",
+        "type": "Int",
         "allowNull": false
       },
       {
         "name": "Wartość",
-        "type": "double",
+        "type": "Double",
         "allowNull": false
       },
       {
         "name": "Magazyn",
-        "type": "int",
+        "type": "Int",
         "allowNull": false
       }
     ]

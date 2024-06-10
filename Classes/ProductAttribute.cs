@@ -15,14 +15,20 @@ namespace Generator_Spisu.Classes
 
        private bool _canBeEmpty;
 
+        private List<string> _enumValues;
 
-        public ProductAttribute(string name, AttributeType type, bool canBeEmpty)
+
+        public ProductAttribute(string name, AttributeType type, bool canBeEmpty, List<string> enumValues)
         {
             _name = name;
             _type = type;
             _canBeEmpty = canBeEmpty;
+            _enumValues = enumValues;
            
         }
+
+
+
 
         public string Name
         {
@@ -40,6 +46,12 @@ namespace Generator_Spisu.Classes
         {
             get { return _canBeEmpty; }
             set { _canBeEmpty = value; }
+        }
+
+        public List<string> EnumValues
+        {
+            get { return _enumValues; }
+            set { _enumValues = value; }
         }
 
 
@@ -73,7 +85,8 @@ namespace Generator_Spisu.Classes
         Int,
         Double,
         DateTime,
-        Bool
+        Bool,
+        Enum
 
     }
 

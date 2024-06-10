@@ -5,6 +5,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.IO;
+using Generator_Spisu.Classes;
 
 namespace JsonFileOperations
 {
@@ -15,6 +16,8 @@ namespace JsonFileOperations
         public string Name { get; set; }
         public string Type { get; set; }
         public bool AllowNull { get; set; }
+
+        public List<string> EnumValues { get; set; }
     }
 
     public class JsonSettingsOperations
@@ -23,6 +26,7 @@ namespace JsonFileOperations
         public List<string> ColumnWidths { get; set; }
         public string HeaderFontSize { get; set; }
         public string HeaderFontColor { get; set; }
+        public List<string> EnumValues { get; set; }
         public List<Attribute> Attributes { get; set; }
 
         public List<string> GetColumnHeaders()

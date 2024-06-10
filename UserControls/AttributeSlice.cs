@@ -17,6 +17,8 @@ namespace Generator_Spisu.UserControls
 
         private SliceMode sliceMode;   // if true, the slice is in edit mode
 
+        private List<string> enumValues;
+
         public AttributeSlice()
         {
             InitializeComponent();
@@ -116,7 +118,12 @@ namespace Generator_Spisu.UserControls
         {
             try
             {
-                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty());
+                List<string> enumValues = new List<string>();
+                if (AttributeTypeComboBox.SelectedIndex == 5)
+                {
+                    enumValues = this.enumValues;
+                }
+                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues);
             }
            catch(Exception e)
             {
@@ -125,6 +132,54 @@ namespace Generator_Spisu.UserControls
             }
             
         }
+
+        private void AttributeTypeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DownArrow_Click(object sender, EventArgs e)
+        {
+            ShowTypeLabels();
+        }
+
+        private void ShowTypeLabels()
+        {
+            Height = 200;
+
+        }
+
+        private void AddEnumValueButton_Click(object sender, EventArgs e)
+        {
+            addNewEnumValue();
+        }
+
+        private void ClearEnumValuesButton_Click(object sender, EventArgs e)
+        {
+            clearEnumValues();
+        }
+
+
+        private void addNewEnumValue()
+        {
+
+
+            string newEnumValue = this.newTypeTextBox.Text;
+
+            this.enumValues.Add(newEnumValue);
+
+            this.TypesListLabel.Text += newEnumValue + ", ";
+        }
+
+        private void clearEnumValues()
+        {
+            this.enumValues.Clear();
+            this.TypesListLabel.Text = "";
+        }
+      
+
+
+
 
     }
 

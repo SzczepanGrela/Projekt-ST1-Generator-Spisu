@@ -31,6 +31,7 @@ namespace Generator_Spisu
         public MainWindow()
         {
             InitializeComponent();
+            AttributeList.SetAttributesFromSettings();
             ProductList.ProductAdded += HandleProductAdded;
             DataInsertSlice.ProductEdited += HandleProductEdited;
 
