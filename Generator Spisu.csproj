@@ -86,7 +86,7 @@
     <Compile Include="Classes\FileOperations\BasicFileOperations.cs" />
     <Compile Include="Classes\FileOperations\CsvFileOperations.cs" />
     <Compile Include="Classes\FileOperations\DocxGenerator.cs" />
-    <Compile Include="Classes\FileOperations\JsonAttributeSettings.cs" />
+    <Compile Include="Classes\FileOperations\JsonSettingsOperations.cs" />
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductAttribute.cs" />
     <Compile Include="Classes\ProductList.cs" />
@@ -106,6 +106,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AttributeSlice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AttributeSlice.Designer.cs">
+      <DependentUpon>AttributeSlice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataBox.Designer.cs">
+      <DependentUpon>DataBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DataInsertSlice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -117,6 +129,18 @@
     </Compile>
     <Compile Include="UserControls\DataSlice.Designer.cs">
       <DependentUpon>DataSlice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DynamicDataInsertSlice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DynamicDataInsertSlice.Designer.cs">
+      <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DynamicEmptyDataInsertSlice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DynamicEmptyDataInsertSlice.Designer.cs">
+      <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\PropertySettings.resx">
       <DependentUpon>PropertySettings.cs</DependentUpon>
@@ -133,11 +157,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AttributeSlice.resx">
+      <DependentUpon>AttributeSlice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataBox.resx">
+      <DependentUpon>DataBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataInsertSlice.resx">
       <DependentUpon>DataInsertSlice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataSlice.resx">
       <DependentUpon>DataSlice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DynamicDataInsertSlice.resx">
+      <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DynamicEmptyDataInsertSlice.resx">
+      <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Diagrams\ClassDiagram1.cd" />
     <None Include="packages.config" />
@@ -156,8 +192,5 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Settings\Attributes.txt" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

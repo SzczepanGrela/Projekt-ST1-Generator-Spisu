@@ -29,6 +29,7 @@ namespace Generator_Spisu.Classes
         public DynamicProduct(Dictionary<ProductAttribute, string> attributes)
         {
             _attributes = attributes;
+            this.Id = ProductList.GetNextId();
         }
 
         public DynamicProduct(List <string> values) : this()
