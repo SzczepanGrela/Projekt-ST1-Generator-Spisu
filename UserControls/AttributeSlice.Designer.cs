@@ -35,14 +35,14 @@
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AttributeNameLabel = new System.Windows.Forms.Label();
             this.AttributeTypeLabel = new System.Windows.Forms.Label();
-            this.DownArrow = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.TypesListLabel = new System.Windows.Forms.Label();
-            this.newTypeTextBox = new System.Windows.Forms.TextBox();
-            this.AddEnumValueButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ArrowLabel = new System.Windows.Forms.Label();
+            this.ExpandedPanel = new System.Windows.Forms.Panel();
             this.ClearEnumValuesButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AddEnumValueButton = new System.Windows.Forms.Button();
+            this.newTypeTextBox = new System.Windows.Forms.TextBox();
+            this.TypesListLabel = new System.Windows.Forms.Label();
+            this.ExpandedPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // AttributeNameTextBox
@@ -139,66 +139,30 @@
             this.AttributeTypeLabel.Visible = false;
             this.AttributeTypeLabel.Click += new System.EventHandler(this.AttributeTypeLabel_Click);
             // 
-            // DownArrow
+            // ArrowLabel
             // 
-            this.DownArrow.AutoSize = true;
-            this.DownArrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DownArrow.Location = new System.Drawing.Point(431, 10);
-            this.DownArrow.Name = "DownArrow";
-            this.DownArrow.Size = new System.Drawing.Size(35, 39);
-            this.DownArrow.TabIndex = 7;
-            this.DownArrow.Text = "↓";
-            this.DownArrow.Click += new System.EventHandler(this.DownArrow_Click);
+            this.ArrowLabel.AutoSize = true;
+            this.ArrowLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ArrowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.ArrowLabel.Location = new System.Drawing.Point(431, 16);
+            this.ArrowLabel.Name = "ArrowLabel";
+            this.ArrowLabel.Size = new System.Drawing.Size(35, 39);
+            this.ArrowLabel.TabIndex = 7;
+            this.ArrowLabel.Text = "↓";
+            this.ArrowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.ArrowLabel.Click += new System.EventHandler(this.Arrow_Click);
             // 
-            // panel1
+            // ExpandedPanel
             // 
-            this.panel1.Controls.Add(this.ClearEnumValuesButton);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.AddEnumValueButton);
-            this.panel1.Controls.Add(this.newTypeTextBox);
-            this.panel1.Controls.Add(this.TypesListLabel);
-            this.panel1.Location = new System.Drawing.Point(32, 70);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(847, 76);
-            this.panel1.TabIndex = 8;
-            // 
-            // TypesListLabel
-            // 
-            this.TypesListLabel.AutoSize = true;
-            this.TypesListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TypesListLabel.Location = new System.Drawing.Point(27, 10);
-            this.TypesListLabel.Name = "TypesListLabel";
-            this.TypesListLabel.Size = new System.Drawing.Size(0, 20);
-            this.TypesListLabel.TabIndex = 0;
-            // 
-            // newTypeTextBox
-            // 
-            this.newTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.newTypeTextBox.Location = new System.Drawing.Point(356, 45);
-            this.newTypeTextBox.Name = "newTypeTextBox";
-            this.newTypeTextBox.Size = new System.Drawing.Size(144, 26);
-            this.newTypeTextBox.TabIndex = 1;
-            // 
-            // AddEnumValueButton
-            // 
-            this.AddEnumValueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddEnumValueButton.Location = new System.Drawing.Point(528, 43);
-            this.AddEnumValueButton.Name = "AddEnumValueButton";
-            this.AddEnumValueButton.Size = new System.Drawing.Size(92, 28);
-            this.AddEnumValueButton.TabIndex = 2;
-            this.AddEnumValueButton.Text = "Dodaj";
-            this.AddEnumValueButton.UseVisualStyleBackColor = true;
-            this.AddEnumValueButton.Click += new System.EventHandler(this.AddEnumValueButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(98, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Dodaj pojedyncze typy wyboru";
+            this.ExpandedPanel.Controls.Add(this.ClearEnumValuesButton);
+            this.ExpandedPanel.Controls.Add(this.label1);
+            this.ExpandedPanel.Controls.Add(this.AddEnumValueButton);
+            this.ExpandedPanel.Controls.Add(this.newTypeTextBox);
+            this.ExpandedPanel.Controls.Add(this.TypesListLabel);
+            this.ExpandedPanel.Location = new System.Drawing.Point(32, 70);
+            this.ExpandedPanel.Name = "ExpandedPanel";
+            this.ExpandedPanel.Size = new System.Drawing.Size(847, 76);
+            this.ExpandedPanel.TabIndex = 8;
             // 
             // ClearEnumValuesButton
             // 
@@ -211,12 +175,51 @@
             this.ClearEnumValuesButton.UseVisualStyleBackColor = true;
             this.ClearEnumValuesButton.Click += new System.EventHandler(this.ClearEnumValuesButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(98, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(221, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Dodaj pojedyncze typy wyboru";
+            // 
+            // AddEnumValueButton
+            // 
+            this.AddEnumValueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddEnumValueButton.Location = new System.Drawing.Point(528, 43);
+            this.AddEnumValueButton.Name = "AddEnumValueButton";
+            this.AddEnumValueButton.Size = new System.Drawing.Size(92, 28);
+            this.AddEnumValueButton.TabIndex = 2;
+            this.AddEnumValueButton.Text = "Dodaj";
+            this.AddEnumValueButton.UseVisualStyleBackColor = true;
+            this.AddEnumValueButton.Click += new System.EventHandler(this.AddEnumValueButton_Click);
+            // 
+            // newTypeTextBox
+            // 
+            this.newTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.newTypeTextBox.Location = new System.Drawing.Point(356, 45);
+            this.newTypeTextBox.Name = "newTypeTextBox";
+            this.newTypeTextBox.Size = new System.Drawing.Size(144, 26);
+            this.newTypeTextBox.TabIndex = 1;
+            // 
+            // TypesListLabel
+            // 
+            this.TypesListLabel.AutoSize = true;
+            this.TypesListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.TypesListLabel.Location = new System.Drawing.Point(27, 10);
+            this.TypesListLabel.Name = "TypesListLabel";
+            this.TypesListLabel.Size = new System.Drawing.Size(0, 20);
+            this.TypesListLabel.TabIndex = 0;
+            // 
             // AttributeSlice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.DownArrow);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.ExpandedPanel);
+            this.Controls.Add(this.ArrowLabel);
             this.Controls.Add(this.AttributeTypeLabel);
             this.Controls.Add(this.AttributeNameLabel);
             this.Controls.Add(this.RemoveButton);
@@ -224,11 +227,11 @@
             this.Controls.Add(this.CanBeEmptyCheckBox);
             this.Controls.Add(this.AttributeTypeComboBox);
             this.Controls.Add(this.AttributeNameTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AttributeSlice";
-            this.Size = new System.Drawing.Size(900, 149);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Size = new System.Drawing.Size(900, 62);
+            this.ExpandedPanel.ResumeLayout(false);
+            this.ExpandedPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,8 +246,8 @@
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Label AttributeNameLabel;
         private System.Windows.Forms.Label AttributeTypeLabel;
-        private System.Windows.Forms.Label DownArrow;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label ArrowLabel;
+        private System.Windows.Forms.Panel ExpandedPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddEnumValueButton;
         private System.Windows.Forms.TextBox newTypeTextBox;

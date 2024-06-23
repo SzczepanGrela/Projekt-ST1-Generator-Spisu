@@ -1,6 +1,6 @@
 ﻿namespace Generator_Spisu.UserControls
 {
-    partial class DynamicDataInsertSlice
+    partial class SingleAttributeInsertForm
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // DynamicDataInsertSlice
+            // SingleAttributeInsertForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "DynamicDataInsertSlice";
-            this.Size = new System.Drawing.Size(974, 217);
+            this.Name = "SingleAttributeInsertForm";
+            this.Size = new System.Drawing.Size(203, 150);
             this.ResumeLayout(false);
 
         }

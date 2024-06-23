@@ -31,9 +31,11 @@ namespace Generator_Spisu
         public MainWindow()
         {
             InitializeComponent();
-            AttributeList.SetAttributesFromSettings();
             ProductList.ProductAdded += HandleProductAdded;
-            DataInsertSlice.ProductEdited += HandleProductEdited;
+            LegacyDataInsertSlice.ProductEdited += HandleProductEdited;
+
+            AttributeList.SetAttributesFromSettings();
+            InitializeUserControls();
 
         }
 
@@ -44,7 +46,7 @@ namespace Generator_Spisu
 
         private void HandleProductAdded(object sender, ProductAddedEventArgs e)
         {
-            DataSlicePanel.Controls.Add(new DataSlice(e.Product));
+            DataSlicePanel.Controls.Add(new LegacyDataSlice(e.Product));
         }
 
 
@@ -53,9 +55,9 @@ namespace Generator_Spisu
         {
             foreach (Control control in DataSlicePanel.Controls)
             {
-                if (control is DataSlice)
+                if (control is LegacyDataSlice)
                 {
-                    DataSlice dataSlice = (DataSlice)control;
+                    LegacyDataSlice dataSlice = (LegacyDataSlice)control;
                     if (dataSlice.GetProduct().Id == e.Product.Id)
                     {
                         dataSlice.UpdateProduct(e.Product);
@@ -265,8 +267,21 @@ namespace Generator_Spisu
             ClearEverything();
         }
 
-       
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void InitializeUserControls()
+        {
+
+
+        }
 
 
     }

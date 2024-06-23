@@ -1,6 +1,6 @@
 ﻿namespace Generator_Spisu.UserControls
 {
-    partial class DataSlice
+    partial class LegacyDataSlice
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.

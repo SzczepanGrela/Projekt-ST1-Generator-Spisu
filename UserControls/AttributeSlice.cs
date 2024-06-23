@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Generator_Spisu.Classes;
+using System.Windows.Forms.VisualStyles;
 
 namespace Generator_Spisu.UserControls
 {
@@ -17,14 +18,16 @@ namespace Generator_Spisu.UserControls
 
         private SliceMode sliceMode;   // if true, the slice is in edit mode
 
-        private List<string> enumValues;
+        private bool isExpanded = false;
+
+        private List<string> enumValues = new List<string>();
 
         public AttributeSlice()
         {
             InitializeComponent();
 
             this.sliceMode = SliceMode.Edit;
-          
+
             this.AttributeTypeComboBox.SelectedIndex = 0;
         }
 
@@ -33,14 +36,17 @@ namespace Generator_Spisu.UserControls
             this.sliceMode = SliceMode.Edit;
             this.ConfirmAndEditButton.Text = "Zatwierdź";
 
-            this.AttributeNameLabel.Text = this.AttributeNameTextBox.Text;
-
+            this.AttributeNameTextBox.Text = this.AttributeNameLabel.Text;
             this.AttributeNameTextBox.Visible = true;
             this.AttributeNameLabel.Visible = false;
 
-            this.AttributeTypeComboBox.Enabled = true;
+
+            this.AttributeTypeComboBox.Visible = true;
+            this.AttributeTypeLabel.Visible = false;
 
             this.CanBeEmptyCheckBox.Enabled = true;
+
+            EnableExpandedControls();
 
         }
 
@@ -49,27 +55,44 @@ namespace Generator_Spisu.UserControls
             this.sliceMode = SliceMode.Display;
             this.ConfirmAndEditButton.Text = "Edytuj";
 
-            
+            this.AttributeNameLabel.Text = this.AttributeNameTextBox.Text;
             this.AttributeNameTextBox.Visible = false;
             this.AttributeNameLabel.Visible = true;
 
             this.AttributeTypeComboBox.Visible = false;
             this.AttributeTypeLabel.Visible = true;
+            this.AttributeTypeLabel.Text = this.AttributeTypeComboBox.Text;
 
             this.CanBeEmptyCheckBox.Enabled = false;
+
+            DisableExpandedControls();
         }
 
+
+        private void DisableExpandedControls()
+        {
+            this.newTypeTextBox.Enabled = false;
+            this.AddEnumValueButton.Enabled = false;
+            this.ClearEnumValuesButton.Enabled = false;
+        }
+
+        private void EnableExpandedControls()
+        {
+            this.newTypeTextBox.Enabled = true;
+            this.AddEnumValueButton.Enabled = true;
+            this.ClearEnumValuesButton.Enabled = true;
+        }
 
 
 
 
         private void ConfirmAndEditButton_Click(object sender, EventArgs e)
         {
-            if(this.sliceMode == SliceMode.Edit)
+            if (this.sliceMode == SliceMode.Edit)
             {
                 this.SwitchToDisplayMode();
             }
-            else if(this.sliceMode == SliceMode.Display)
+            else if (this.sliceMode == SliceMode.Display)
             {
                 this.SwitchToEditMode();
             }
@@ -91,13 +114,13 @@ namespace Generator_Spisu.UserControls
 
         public AttributeType GetAttributeType()
         {
-            
-           if (this.AttributeTypeComboBox.Text == "Wybierz typ") throw new ArgumentException("Nie wybrano typu atrybutu");
 
-                AttributeType attributeType = (AttributeType)Enum.Parse(typeof(AttributeType), this.AttributeTypeComboBox.Text);
-                return attributeType;
+            if (this.AttributeTypeComboBox.Text == "Wybierz typ") throw new ArgumentException("Nie wybrano typu atrybutu");
 
-          
+            AttributeType attributeType = (AttributeType)Enum.Parse(typeof(AttributeType), this.AttributeTypeComboBox.Text);
+            return attributeType;
+
+
 
         }
 
@@ -125,12 +148,12 @@ namespace Generator_Spisu.UserControls
                 }
                 return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues);
             }
-           catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 return null;
             }
-            
+
         }
 
         private void AttributeTypeLabel_Click(object sender, EventArgs e)
@@ -138,16 +161,36 @@ namespace Generator_Spisu.UserControls
 
         }
 
-        private void DownArrow_Click(object sender, EventArgs e)
+        private void Arrow_Click(object sender, EventArgs e)
         {
-            ShowTypeLabels();
+            if (isExpanded)
+            {
+                CollapseSlice();
+                isExpanded = false;
+                this.ArrowLabel.Text = "↓";
+
+            }
+            else
+            {
+                ExpandSlice();
+                isExpanded = true;
+                this.ArrowLabel.Text = "↑";
+            }
+
         }
 
-        private void ShowTypeLabels()
+        private void ExpandSlice()
         {
             Height = 200;
 
         }
+
+        private void CollapseSlice()
+        {
+            Height = 63;
+        }
+
+
 
         private void AddEnumValueButton_Click(object sender, EventArgs e)
         {
@@ -166,9 +209,22 @@ namespace Generator_Spisu.UserControls
 
             string newEnumValue = this.newTypeTextBox.Text;
 
+
+            foreach (string enumValue in enumValues)
+            {
+                if (enumValue == newEnumValue)
+                {
+                    MessageBox.Show("Wartość już istnieje");
+                    return;
+                }
+            }
+            if(enumValues.Count > 0) this.TypesListLabel.Text += ", ";
+
+            this.TypesListLabel.Text += newEnumValue;
+
             this.enumValues.Add(newEnumValue);
 
-            this.TypesListLabel.Text += newEnumValue + ", ";
+
         }
 
         private void clearEnumValues()
@@ -176,7 +232,7 @@ namespace Generator_Spisu.UserControls
             this.enumValues.Clear();
             this.TypesListLabel.Text = "";
         }
-      
+
 
 
 
@@ -188,7 +244,7 @@ namespace Generator_Spisu.UserControls
     {
         Edit,
         Display
-        
+
     }
-   
+
 }

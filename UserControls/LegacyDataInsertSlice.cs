@@ -11,18 +11,18 @@ using System.Windows.Forms;
 
 namespace Generator_Spisu.UserControls
 {
-    public partial class DataInsertSlice : UserControl
+    public partial class LegacyDataInsertSlice : UserControl
     {
 
         bool EditMode = false;   // if true, the slice is in edit mode
 
         int hiddenId = 0;
 
-        public DataInsertSlice()
+        public LegacyDataInsertSlice()
         {
             InitializeComponent();
 
-            DataSlice.ProductEdit += HandleProductEdit;
+            LegacyDataSlice.ProductEdit += HandleProductEdit;
         }
 
         private void button1_Click(object sender, EventArgs e)

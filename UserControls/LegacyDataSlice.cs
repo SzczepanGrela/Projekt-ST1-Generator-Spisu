@@ -13,13 +13,13 @@ using System.Reflection;
 
 namespace Generator_Spisu.UserControls
 {
-    public partial class DataSlice : UserControl
+    public partial class LegacyDataSlice : UserControl
     {
 
         private DynamicProduct originProduct;
 
 
-        public DataSlice(DynamicProduct product)
+        public LegacyDataSlice(DynamicProduct product)
         {
             this.originProduct = product;
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace Generator_Spisu.UserControls
 
         }
 
-        public DataSlice()
+        public LegacyDataSlice()
         {
             this.originProduct = new DynamicProduct();
             InitializeComponent();
@@ -52,14 +52,14 @@ namespace Generator_Spisu.UserControls
         }
 
 
-        public static List <DataSlice> CreateDataSlices(List <Product> ProductList)
+        public static List <LegacyDataSlice> CreateDataSlices(List <Product> ProductList)
         {
 
-            List<DataSlice> DataSlices = new List<DataSlice>();
+            List<LegacyDataSlice> DataSlices = new List<LegacyDataSlice>();
 
             foreach(DynamicProduct product in ProductList)
             {
-                DataSlices.Add(new DataSlice(product));
+                DataSlices.Add(new LegacyDataSlice(product));
             }
 
 

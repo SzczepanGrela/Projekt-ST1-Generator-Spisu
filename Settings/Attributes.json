@@ -25,7 +25,7 @@
       {
         "name": "J.M.",
         "type": "Enum",
-        "enumType": ["Szt","Kg","L"],
+        "enumValues": ["Szt","Kg","L"],
         "allowNull": false
       },
       {
