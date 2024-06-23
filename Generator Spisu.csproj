@@ -112,18 +112,6 @@
     <Compile Include="UserControls\AttributeSlice.Designer.cs">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DataInsertSlice.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DataInsertSlice.Designer.cs">
-      <DependentUpon>DataInsertSlice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\DataSlice.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DataSlice.Designer.cs">
-      <DependentUpon>DataSlice.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\DynamicDataInsertSlice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,12 +141,6 @@
     </Compile>
     <EmbeddedResource Include="UserControls\AttributeSlice.resx">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DataInsertSlice.resx">
-      <DependentUpon>DataInsertSlice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DataSlice.resx">
-      <DependentUpon>DataSlice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DynamicDataInsertSlice.resx">
       <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>

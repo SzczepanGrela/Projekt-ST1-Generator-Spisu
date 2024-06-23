@@ -12,9 +12,9 @@ using Generator_Spisu.Classes.FileOperations;
 using Generator_Spisu.UserControls;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.interfaces;
-using System.Text.Json;
+
 using System.Reflection;
-using DocumentFormat.OpenXml.Drawing;
+
 using Generator_Spisu.Forms;
 
 
@@ -31,8 +31,8 @@ namespace Generator_Spisu
         public MainWindow()
         {
             InitializeComponent();
-            ProductList.ProductAdded += HandleProductAdded;
-            LegacyDataInsertSlice.ProductEdited += HandleProductEdited;
+   /*         ProductList.ProductAdded += HandleProductAdded;
+            LegacyDataInsertSlice.ProductEdited += HandleProductEdited;*/
 
             AttributeList.SetAttributesFromSettings();
             InitializeUserControls();
@@ -44,14 +44,14 @@ namespace Generator_Spisu
 
         }
 
-        private void HandleProductAdded(object sender, ProductAddedEventArgs e)
+   /*     private void HandleProductAdded(object sender, ProductAddedEventArgs e)
         {
             DataSlicePanel.Controls.Add(new LegacyDataSlice(e.Product));
-        }
+        }*/
 
 
 
-        private void HandleProductEdited(object sender, ProductEditedEventArgs e)
+       /* private void HandleProductEdited(object sender, ProductEditedEventArgs e)
         {
             foreach (Control control in DataSlicePanel.Controls)
             {
@@ -65,7 +65,7 @@ namespace Generator_Spisu
                     }
                 }
             }
-        }
+        }*/
 
 
         private void SaveButton_Click(object sender, EventArgs e)
