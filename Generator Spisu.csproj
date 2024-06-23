@@ -112,15 +112,6 @@
     <Compile Include="UserControls\AttributeSlice.Designer.cs">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="UserControls\DataBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DataBox.Designer.cs">
-      <DependentUpon>DataBox.cs</DependentUpon>
-    </Compile>
-=======
->>>>>>> praca nad zapisem i odczytem json
     <Compile Include="UserControls\DataInsertSlice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,12 +154,6 @@
     <EmbeddedResource Include="UserControls\AttributeSlice.resx">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="UserControls\DataBox.resx">
-      <DependentUpon>DataBox.cs</DependentUpon>
-    </EmbeddedResource>
-=======
->>>>>>> praca nad zapisem i odczytem json
     <EmbeddedResource Include="UserControls\DataInsertSlice.resx">
       <DependentUpon>DataInsertSlice.cs</DependentUpon>
     </EmbeddedResource>
