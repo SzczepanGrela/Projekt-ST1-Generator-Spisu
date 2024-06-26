@@ -196,7 +196,7 @@ namespace Generator_Spisu
         private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            // to do: popup do you want to clear everything?
+            // to do: popup do you want to clear everything? ll
             ClearEverything();
         }
 
