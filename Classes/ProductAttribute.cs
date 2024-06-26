@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Generator_Spisu.Enums;
 
 namespace Generator_Spisu.Classes
 {
@@ -79,19 +80,5 @@ namespace Generator_Spisu.Classes
 
     }
 
-    public enum AttributeType
-    {
-        String,
-        Int,
-        Double,
-        DateTime,
-        Bool,
-        Enum
-
-    }
-
-     
-
-
-
+ 
 }

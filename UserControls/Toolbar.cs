@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*using Generator_Spisu.Classes;
+using Generator_Spisu.Classes.FileOperations;
+using Generator_Spisu.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,52 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Generator_Spisu.Classes;
-using Generator_Spisu.Classes.FileOperations;
-using Generator_Spisu.UserControls;
 using WindowsFormsApp1.classes.FileOperations;
-using WindowsFormsApp1.interfaces;
 
-using System.Reflection;
-
-using Generator_Spisu.Forms;
-
-
-
-namespace Generator_Spisu
+namespace Generator_Spisu.UserControls
 {
-    public partial class MainWindow : Form
+    public partial class Toolbar : UserControl
     {
         CsvFileOperations csvFileOperations = new CsvFileOperations();
 
-
-
-
-        public MainWindow()
+        public Toolbar()
         {
             InitializeComponent();
- 
-
-            AttributeList.SetAttributesFromSettings();
-            InitializeUserControls();
-
-        }
-
-        private void dataInsertSlice1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void DataSlicePanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void zapiszToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,15 +34,30 @@ namespace Generator_Spisu
             {
                 DialogResult newSavePath = GetSaveFilePath();
 
-                if (newSavePath == DialogResult.OK) 
+                if (newSavePath == DialogResult.OK)
                     SaveFile();
             }
-            else    
+            else
 
-            SaveFile();
+                SaveFile();
 
 
         }
+
+        private void zapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ProductList.GetProductsCount() < 1)
+            {
+                MessageBox.Show("Nie ma nic do zapisania");
+                return;
+            }
+
+            DialogResult newSavePath = GetSaveFilePath();
+
+            if (newSavePath == DialogResult.OK) SaveFile();
+
+        }
+
 
         private void zapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -109,14 +92,6 @@ namespace Generator_Spisu
             }
         }
 
-
-        private void ClearEverything()
-        {
-            DataSlicePanel.Controls.Clear();
-            ProductList.ClearList();
-
-        }
-
         private DialogResult GetSaveFilePath()
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -139,6 +114,7 @@ namespace Generator_Spisu
         }
 
 
+
         private string GetSaveFilePathDocx()
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -158,9 +134,6 @@ namespace Generator_Spisu
 
             }
         }
-
-
-
         private DialogResult GetOpenFilePath()
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -193,6 +166,7 @@ namespace Generator_Spisu
 
         }
 
+
         private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -200,11 +174,13 @@ namespace Generator_Spisu
             ClearEverything();
         }
 
+
         private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // to do: popup do you want to save, are you sure you want to leave
             Application.Exit();
         }
+
 
         private void stwórzDocxToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -222,10 +198,11 @@ namespace Generator_Spisu
             {
 
                 string settingsPath = "../../Settings/Attributes.json";
-               
+
                 docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), settingsPath);
             }
         }
+
 
         private void atrybutyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -233,63 +210,32 @@ namespace Generator_Spisu
             propertySettingsForm.ShowDialog();
         }
 
+
         private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dr =  GetSaveFilePath();
-            if (dr == DialogResult.Cancel )
+            DialogResult dr = GetSaveFilePath();
+            if (dr == DialogResult.Cancel)
             {
                 return;
             }
-            ClearEverything();
+            OnClearAllClick(EventArgs.Empty);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        public event EventHandler ClearAllClick;
+
+
+
+        protected virtual void OnClearAllClick(EventArgs e)
         {
-
+            ClearAllClick?.Invoke(this, e);
         }
-
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void InitializeUserControls()
-        {
-
-            List<ProductAttribute> attributes = AttributeList.GetAttributes();
-
-            List<AttributeSingleForm> controls = AttributeSingleForm.SingleFormsFactory(attributes);
-
-            foreach (AttributeSingleForm control in controls)
-            {
-                
-                this.AttributesPanel.Controls.Add(control);
-               
-            }
-
-        }
-
-        private void ConfirmButton_Click(object sender, EventArgs e)
-        {
-
-            DynamicProduct product = CreateProduct();
-
-            ProductList.AddProductToList(product);
-        }
-
-        private DynamicProduct CreateProduct()
-        {
-           Dictionary<ProductAttribute, string> attributes = new Dictionary<ProductAttribute, string>();
-
-            foreach (AttributeSingleForm control in AttributesPanel.Controls)
-            {
-                attributes.Add(control.GetProductAttribute(), control.GetControlValue());
-            }
-
-            return  new DynamicProduct(attributes);
-
-            
-        }
-
     }
+
+
+    
+
+
+
+
 }
+*/

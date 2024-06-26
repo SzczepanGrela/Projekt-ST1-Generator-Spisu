@@ -12,11 +12,7 @@
     "headerFontSize": "12",
     "headerFontColor": "#000000",
     "attributes": [
-      {
-        "name": "Id",
-        "type": "Int",
-        "allowNull": false
-      },
+      
       {
         "name": "Towar",
         "type": "String",

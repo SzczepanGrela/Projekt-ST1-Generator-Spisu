@@ -90,6 +90,7 @@
     <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductAttribute.cs" />
     <Compile Include="Classes\ProductList.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Forms\PropertySettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,11 +107,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AttributeSingleForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AttributeSingleForm.Designer.cs">
+      <DependentUpon>AttributeSingleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AttributeSlice.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AttributeSlice.Designer.cs">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CustomNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\CustomNumericUpDown.Designer.cs">
+      <DependentUpon>CustomNumericUpDown.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\DynamicDataInsertSlice.cs">
       <SubType>UserControl</SubType>
@@ -123,6 +136,10 @@
     </Compile>
     <Compile Include="UserControls\DynamicEmptyDataInsertSlice.Designer.cs">
       <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Toolbar.cs" />
+    <Compile Include="UserControls\Toolbar.Designer.cs">
+      <DependentUpon>Toolbar.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\PropertySettings.resx">
       <DependentUpon>PropertySettings.cs</DependentUpon>
@@ -139,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AttributeSingleForm.resx">
+      <DependentUpon>AttributeSingleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AttributeSlice.resx">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DynamicEmptyDataInsertSlice.resx">
       <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Toolbar.resx">
+      <DependentUpon>Toolbar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Diagrams\ClassDiagram1.cd" />
     <None Include="packages.config" />

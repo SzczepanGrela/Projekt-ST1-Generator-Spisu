@@ -1,6 +1,6 @@
 ﻿namespace Generator_Spisu.UserControls
 {
-    partial class DynamicDataInsertSlice
+    partial class CustomNumericUpDown
     {
         /// <summary> 
         /// Wymagana zmienna projektanta.
@@ -28,17 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // DynamicDataInsertSlice
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "DynamicDataInsertSlice";
-            this.Size = new System.Drawing.Size(1299, 99);
-            this.ResumeLayout(false);
-
         }
 
         #endregion

@@ -9,7 +9,7 @@ namespace Generator_Spisu.Classes
 {
     public static class ProductList
     {
-        private static List<Product> _products = new List<Product>();
+        private static List<DynamicProduct> _products = new List<DynamicProduct>();
 
         public static void ClearList()
         {
@@ -105,7 +105,7 @@ namespace Generator_Spisu.Classes
         }
 
 
-        public static void EditProductInList(Product product)
+        public static void EditProductInList(DynamicProduct product)
         {
             for (int i = 0; i < _products.Count; i++)
             {

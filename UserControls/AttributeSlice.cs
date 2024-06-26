@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Generator_Spisu.Classes;
 using System.Windows.Forms.VisualStyles;
+using Generator_Spisu.Enums;
 
 namespace Generator_Spisu.UserControls
 {

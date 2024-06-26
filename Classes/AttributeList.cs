@@ -8,7 +8,7 @@ using Generator_Spisu.Classes.FileOperations;
 using Generator_Spisu.Classes;
 using JsonFileOperations;
 using System.Windows.Forms;
-
+using Generator_Spisu.Enums;
 
 
 namespace Generator_Spisu.Classes
