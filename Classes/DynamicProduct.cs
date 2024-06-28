@@ -9,18 +9,18 @@ namespace Generator_Spisu.Classes
 {
     public class DynamicProduct : Product
     {
-        private readonly Dictionary<ProductAttribute, string> _attributes;
+        private readonly Dictionary<ProductAttribute, object> _attributes;
 
         // id proeprty is inherited from Product class
 
         public DynamicProduct()
         {
-            _attributes = AttributeList.GetAttributes().ToDictionary(attr => attr, _ => string.Empty);
+            _attributes = AttributeList.GetAttributes().ToDictionary(attr => attr, _ => (object)null);
 
             this.Id = ProductList.GetNextId();
         }
 
-        public DynamicProduct(Dictionary<ProductAttribute, string> attributes)
+        public DynamicProduct(Dictionary<ProductAttribute, object> attributes)
         {
             _attributes = attributes;
             this.Id = ProductList.GetNextId();
@@ -45,12 +45,12 @@ namespace Generator_Spisu.Classes
 
       
 
-        public string GetAttributeValue(ProductAttribute attribute)
+        public object GetAttributeValue(ProductAttribute attribute)
         {
             return _attributes.TryGetValue(attribute, out var value) ? value : null;
         }
 
-        public IEnumerable<KeyValuePair<ProductAttribute, string>> GetAllAttributes()
+        public IEnumerable<KeyValuePair<ProductAttribute, object>> GetAllAttributes()
         {
             return _attributes;
         }

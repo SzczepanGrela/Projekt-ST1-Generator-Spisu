@@ -12,7 +12,7 @@ using Generator_Spisu.Classes.FileOperations;
 using Generator_Spisu.UserControls;
 using WindowsFormsApp1.classes.FileOperations;
 using WindowsFormsApp1.interfaces;
-
+using Generator_Spisu.Enums;
 using System.Reflection;
 
 using Generator_Spisu.Forms;
@@ -279,11 +279,39 @@ namespace Generator_Spisu
 
         private DynamicProduct CreateProduct()
         {
-           Dictionary<ProductAttribute, string> attributes = new Dictionary<ProductAttribute, string>();
+           Dictionary<ProductAttribute, object> attributes = new Dictionary<ProductAttribute, object>();
 
             foreach (AttributeSingleForm control in AttributesPanel.Controls)
             {
-                attributes.Add(control.GetProductAttribute(), control.GetControlValue());
+
+                ProductAttribute key = control.GetProductAttribute();
+                var value = control.GetControlValue();
+
+                bool isIncorrectEnum = key.Type == AttributeType.Enum && !key.EnumValues.Contains(value);  
+                
+                if ( isIncorrectEnum )
+                { 
+                        MessageBox.Show("Niepoprawna wartość dla atrybutu " + key.Name);
+                        return null; 
+                }
+
+
+                bool isEmptyWhenNotAllowed = key.CanBeEmpty == false && (value as string == "" || value == null);
+
+                if (isEmptyWhenNotAllowed)
+                {
+                    MessageBox.Show("Atrybut " + key.Name + " nie może być pusty");
+                    return null;
+                }
+
+
+                bool areTypesMatching = key.Type == control.GetProductAttribute().Type;
+
+
+                if (areTypesMatching) attributes.Add(control.GetProductAttribute(), control.GetControlValue());
+                else throw new ArgumentException("Types of control and attribute do not match");
+
+
             }
 
             return  new DynamicProduct(attributes);

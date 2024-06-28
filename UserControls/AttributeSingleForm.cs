@@ -48,7 +48,7 @@ namespace Generator_Spisu.UserControls
                 foreach (ProductAttribute productAttribute in productAttributes)
                 {
                     AttributeSingleForm attributeSingleForm = new AttributeSingleForm(productAttribute);
-                    
+
                     attributeSingleForm.Show();
                     attributeSingleForms.Add(attributeSingleForm);
                 }
@@ -112,7 +112,7 @@ namespace Generator_Spisu.UserControls
             {
                 SizeF size = g.MeasureString(this.PropertyNameLabel.Text, this.PropertyNameLabel.Font);
                 int suggestedWidth = (int)(Math.Ceiling(size.Width) * 1.2) + this.PropertyNameLabel.Margin.Horizontal;
-                this.Width = (suggestedWidth > minWidth ) ? suggestedWidth : minWidth;
+                this.Width = (suggestedWidth > minWidth) ? suggestedWidth : minWidth;
             }
         }
 
@@ -122,34 +122,61 @@ namespace Generator_Spisu.UserControls
             PropertyNameLabel.Location = new Point((this.Width - PropertyNameLabel.Width) / 2, PropertyNameLabel.Location.Y);
         }
 
-        public string GetControlValue()
+        public object GetControlValue()
         {
-            if (InsertPanel.Controls.Count > 0)
+            if (InsertPanel.Controls.Count <= 0)
             {
-                Control control = InsertPanel.Controls[0];
-                switch (originProductAttribute.Type)
-                {
-                    case AttributeType.String:
-                        return ((TextBox)control).Text;
-                    case AttributeType.Int:
-                        return ((NumericUpDown)control).Value.ToString();
-                    case AttributeType.Double:
-                        return ((CustomNumericUpDown)control).Value.ToString();
-                    case AttributeType.DateTime:
-                        return ((DateTimePicker)control).Value.ToString();
-                    case AttributeType.Bool:
-                        return ((CheckBox)control).Checked.ToString();
-                    case AttributeType.Enum:
-                        return ((ComboBox)control).SelectedItem.ToString();
-                }
+                return null;
             }
-            return null;
+
+            Control control = InsertPanel.Controls[0];
+
+            switch (originProductAttribute.Type)
+            {
+                case AttributeType.String:
+                    return ((TextBox)control).Text;
+                case AttributeType.Int:
+                    return ((NumericUpDown)control).Value;
+                case AttributeType.Double:
+                    return ((CustomNumericUpDown)control).Value;
+                case AttributeType.DateTime:
+                    return ((DateTimePicker)control).Value;
+                case AttributeType.Bool:
+                    return ((CheckBox)control).Checked;
+                case AttributeType.Enum:
+                    return ((ComboBox)control).SelectedItem;
+                default:
+                    return null;
+            }
+
+
         }
 
         public ProductAttribute GetProductAttribute()
         {
             return originProductAttribute;
         }
+
+
+        public string GetValueToString()
+
+        {
+           var value = GetControlValue();
+
+            if(value is null)
+            {
+                throw new ArgumentException("Value is null");
+            }
+
+            if (value.ToString() is null)
+            {
+                throw new ArgumentException("Can't convert value to string");
+            }
+
+            return value.ToString();
+
+        }
+
 
 
     }
