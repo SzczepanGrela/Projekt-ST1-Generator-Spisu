@@ -31,10 +31,14 @@ namespace Generator_Spisu
         public MainWindow()
         {
             InitializeComponent();
+
+            ProductList.ProductAdded += HandleProductAdded;
  
 
             AttributeList.SetAttributesFromSettings();
             InitializeUserControls();
+
+            
 
         }
 
@@ -112,7 +116,7 @@ namespace Generator_Spisu
 
         private void ClearEverything()
         {
-            DataSlicePanel.Controls.Clear();
+            ScrollablePanel.Controls.Clear();
             ProductList.ClearList();
 
         }
@@ -253,6 +257,33 @@ namespace Generator_Spisu
 
         }
 
+        private void AddAttributeNamesSlice()
+        {
+
+            DynamicDataDisplaySlice AttributeNamesSlice = new DynamicDataDisplaySlice();
+
+            
+            
+            AttributeNamesPanel.Controls.Add(AttributeNamesSlice);
+
+        }
+
+        private void ClearRecords()
+        {
+            ScrollablePanel.Controls.Clear();
+
+            AddAttributeNamesSlice();
+
+        }
+
+        private void HandleProductAdded(object sender, ProductAddedEventArgs e)
+        {
+
+            DynamicDataDisplaySlice slice = new DynamicDataDisplaySlice(e.Product);
+            slice.Dock = DockStyle.Top;
+            DataSlicePanel.Controls.Add(slice);
+        }
+
         private void InitializeUserControls()
         {
 
@@ -267,6 +298,11 @@ namespace Generator_Spisu
                
             }
 
+
+
+            AddAttributeNamesSlice();
+
+
         }
 
         private void ConfirmButton_Click(object sender, EventArgs e)
@@ -279,7 +315,7 @@ namespace Generator_Spisu
 
         private DynamicProduct CreateProduct()
         {
-           Dictionary<ProductAttribute, object> attributes = new Dictionary<ProductAttribute, object>();
+           Dictionary<ProductAttribute, object> attributesWithValues = new Dictionary<ProductAttribute, object>();
 
             foreach (AttributeSingleForm control in AttributesPanel.Controls)
             {
@@ -308,16 +344,15 @@ namespace Generator_Spisu
                 bool areTypesMatching = key.Type == control.GetProductAttribute().Type;
 
 
-                if (areTypesMatching) attributes.Add(control.GetProductAttribute(), control.GetControlValue());
+                if (areTypesMatching) attributesWithValues.Add(key, value);
                 else throw new ArgumentException("Types of control and attribute do not match");
 
 
             }
 
-            return  new DynamicProduct(attributes);
+            return  new DynamicProduct(attributesWithValues);
 
             
         }
-
     }
 }

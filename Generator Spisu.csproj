@@ -125,6 +125,18 @@
     <Compile Include="UserControls\CustomNumericUpDown.Designer.cs">
       <DependentUpon>CustomNumericUpDown.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\DataDisplayCell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DataDisplayCell.Designer.cs">
+      <DependentUpon>DataDisplayCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DynamicDataDisplaySlice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\DynamicDataDisplaySlice.Designer.cs">
+      <DependentUpon>DynamicDataDisplaySlice.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DynamicDataInsertSlice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AttributeSlice.resx">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DataDisplayCell.resx">
+      <DependentUpon>DataDisplayCell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\DynamicDataDisplaySlice.resx">
+      <DependentUpon>DynamicDataDisplaySlice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DynamicDataInsertSlice.resx">
       <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>

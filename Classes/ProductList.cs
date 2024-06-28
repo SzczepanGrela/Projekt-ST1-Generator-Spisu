@@ -29,33 +29,68 @@ namespace Generator_Spisu.Classes
             return _products.Count;
         }
 
-        public static List<List<Object>> GetProductLists()
+        /*    public static List<List<Object>> GetProductLists()
+            {
+                if (_products.Count == 0)
+                {
+                    return null;
+                }
+               List<List<Object>> ListofProductLists = new List<List<Object>>();
+                foreach(DynamicProduct product in _products)
+                {
+                    List<Object> productProperties = new List<Object>();
+
+                    foreach (PropertyInfo property in product.GetType().GetProperties())
+                    {
+                        if (property.Name != "ColumnHeaders")  
+                        {
+                            object propertyValue = property.GetValue(product);
+                            productProperties.Add(propertyValue);
+                        }
+                    }
+                    ListofProductLists.Add(productProperties);
+
+                }
+
+                return ListofProductLists;
+            }
+    */
+
+
+
+        public static List<List<string>> GetProductLists()
         {
             if (_products.Count == 0)
             {
                 return null;
             }
-           List<List<Object>> ListofProductLists = new List<List<Object>>();
-            foreach(Product product in _products)
-            {
-                List<Object> productProperties = new List<Object>();
+            List<List<string>> ListofProductLists = new List<List<string>>();
 
-                foreach (PropertyInfo property in product.GetType().GetProperties())
+            List<ProductAttribute> ProductAttributes = AttributeList.GetAttributes();
+
+
+            foreach (DynamicProduct product in _products)
+            {
+                List<string> productProperties = new List<string>();
+                foreach (ProductAttribute attribute in ProductAttributes)
                 {
-                    if (property.Name != "ColumnHeaders")
-                    {
-                        object propertyValue = property.GetValue(product);
-                        productProperties.Add(propertyValue);
-                    }
+                    string nextValue = product.GetAttributeValue(attribute) == null ? "" : product.GetAttributeValue(attribute).ToString();
+
+                    productProperties.Add(nextValue);
+
+
                 }
                 ListofProductLists.Add(productProperties);
-                
+
+
             }
+
 
             return ListofProductLists;
         }
 
-        
+
+
 
         private static void OnProductAdded(DynamicProduct product)
         {

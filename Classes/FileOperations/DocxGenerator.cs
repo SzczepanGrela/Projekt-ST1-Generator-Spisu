@@ -8,7 +8,7 @@ namespace Generator_Spisu.Classes.FileOperations
 {
     internal class DocxGenerator
     {
-        public void GenerateDocument(string filePath, List<List<object>> data, string settingsPath)
+        public void GenerateDocument(string filePath, List<List<string>> data, string settingsPath)
         {
             JsonConfigLoader loader = new JsonConfigLoader();
             Config config = loader.LoadConfig(settingsPath);
@@ -63,14 +63,14 @@ namespace Generator_Spisu.Classes.FileOperations
             table.Append(headerRow);
         }
 
-        private void AddTableRow(Table table, List<object> rowData, List<string> columnWidths)
+        private void AddTableRow(Table table, List<string> rowData, List<string> columnWidths)
         {
             TableRow row = new TableRow();
 
             for (int i = 0; i < rowData.Count; i++)
             {
                 TableCell cell = new TableCell();
-                Paragraph paragraph = new Paragraph(new Run(new Text(rowData[i].ToString())));
+                Paragraph paragraph = new Paragraph(new Run(new Text(rowData[i])));
                 cell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = columnWidths[i] }));
                 cell.Append(paragraph);
                 row.Append(cell);

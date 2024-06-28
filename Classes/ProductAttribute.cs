@@ -9,6 +9,7 @@ namespace Generator_Spisu.Classes
 {
     public class ProductAttribute
     {
+        private Guid _id;   // attributes have to be unique despite having the same name, for dictionary reasons
 
        private string _name;
 
@@ -25,6 +26,7 @@ namespace Generator_Spisu.Classes
             _type = type;
             _canBeEmpty = canBeEmpty;
             _enumValues = enumValues;
+            _id = Guid.NewGuid();
            
         }
 
@@ -60,14 +62,14 @@ namespace Generator_Spisu.Classes
         {
             if (obj is ProductAttribute other)
             {
-                return Name == other.Name && Type == other.Type;
+                return  this._id == other._id;
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode() ^ Type.GetHashCode();
+            return _id.GetHashCode(); 
         }
 
         public override string ToString()
