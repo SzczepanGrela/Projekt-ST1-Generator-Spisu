@@ -135,5 +135,10 @@ namespace Generator_Spisu.Classes
             }
            
         }
+
+        internal static List<string> GetAttributeNames()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

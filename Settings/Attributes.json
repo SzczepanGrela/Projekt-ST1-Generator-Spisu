@@ -8,7 +8,7 @@
     "**/platforms"
   ],
   "settings": {
-    "columnWidths": [ "200", "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
+    "columnWidths": [ "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
     "headerFontSize": "12",
     "headerFontColor": "#000000",
     "attributes": [

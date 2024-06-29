@@ -32,13 +32,11 @@
             this.SaveSettingsButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.addSliceButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SlicePanel = new System.Windows.Forms.Panel();
-            this.attributeSlice1 = new Generator_Spisu.UserControls.AttributeSlice();
-            this.addSliceButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.SlicePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // MessageLabel
@@ -78,41 +76,10 @@
             this.panel2.Controls.Add(this.SaveSettingsButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 550);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(982, 81);
             this.panel2.TabIndex = 33;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.MessageLabel);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(982, 81);
-            this.panel3.TabIndex = 34;
-            // 
-            // SlicePanel
-            // 
-            this.SlicePanel.AutoScroll = true;
-            this.SlicePanel.Controls.Add(this.attributeSlice1);
-            this.SlicePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SlicePanel.Location = new System.Drawing.Point(0, 81);
-            this.SlicePanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.SlicePanel.Name = "SlicePanel";
-            this.SlicePanel.Size = new System.Drawing.Size(982, 469);
-            this.SlicePanel.TabIndex = 35;
-            // 
-            // attributeSlice1
-            // 
-            this.attributeSlice1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.attributeSlice1.Location = new System.Drawing.Point(0, 0);
-            this.attributeSlice1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.attributeSlice1.Name = "attributeSlice1";
-            this.attributeSlice1.Size = new System.Drawing.Size(982, 63);
-            this.attributeSlice1.TabIndex = 0;
-            this.attributeSlice1.Load += new System.EventHandler(this.attributeSlice1_Load);
             // 
             // addSliceButton
             // 
@@ -126,6 +93,27 @@
             this.addSliceButton.Text = "Dodaj";
             this.addSliceButton.UseVisualStyleBackColor = false;
             this.addSliceButton.Click += new System.EventHandler(this.addSliceButton_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.MessageLabel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(982, 81);
+            this.panel3.TabIndex = 34;
+            // 
+            // SlicePanel
+            // 
+            this.SlicePanel.AutoScroll = true;
+            this.SlicePanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SlicePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SlicePanel.Location = new System.Drawing.Point(0, 81);
+            this.SlicePanel.Margin = new System.Windows.Forms.Padding(2);
+            this.SlicePanel.Name = "SlicePanel";
+            this.SlicePanel.Size = new System.Drawing.Size(982, 469);
+            this.SlicePanel.TabIndex = 35;
             // 
             // PropertySettings
             // 
@@ -141,7 +129,6 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.SlicePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +142,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel SlicePanel;
-        private UserControls.AttributeSlice attributeSlice1;
         private System.Windows.Forms.Button addSliceButton;
     }
 }

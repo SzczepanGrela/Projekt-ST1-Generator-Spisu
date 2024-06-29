@@ -32,6 +32,28 @@ namespace Generator_Spisu.UserControls
             this.AttributeTypeComboBox.SelectedIndex = 0;
         }
 
+        public AttributeSlice(ProductAttribute attribute)
+        {
+            InitializeComponent();
+            SwitchToDisplayMode();
+
+            this.AttributeNameLabel.Text = attribute.Name;
+            this.AttributeTypeLabel.Text = attribute.Type.ToString();
+            this.CanBeEmptyCheckBox.Checked = attribute.CanBeEmpty;
+
+            if (attribute.Type == AttributeType.Enum)
+            {
+                this.enumValues = attribute.EnumValues;
+                foreach (string enumValue in attribute.EnumValues)
+                {
+                    if (this.TypesListLabel.Text.Length > 0) this.TypesListLabel.Text += ", ";
+                    this.TypesListLabel.Text += enumValue;
+                }
+            }
+
+            
+        }
+
         private void SwitchToEditMode()
         {
             this.sliceMode = SliceMode.Edit;
@@ -110,7 +132,7 @@ namespace Generator_Spisu.UserControls
 
         public string GetAttributeName()
         {
-            return this.AttributeNameTextBox.Text;
+            return this.AttributeNameLabel.Text;
         }
 
         public AttributeType GetAttributeType()
@@ -219,7 +241,7 @@ namespace Generator_Spisu.UserControls
                     return;
                 }
             }
-            if(enumValues.Count > 0) this.TypesListLabel.Text += ", ";
+            if (enumValues.Count > 0) this.TypesListLabel.Text += ", ";
 
             this.TypesListLabel.Text += newEnumValue;
 
@@ -235,6 +257,18 @@ namespace Generator_Spisu.UserControls
         }
 
 
+
+        public static List<AttributeSlice> AttributeSliceFactory(List<ProductAttribute> attributes)
+        {
+            List<AttributeSlice> slices = new List<AttributeSlice>();
+            foreach (ProductAttribute attribute in attributes)
+            {
+                AttributeSlice slice = new AttributeSlice(attribute);
+                slices.Add(slice);
+            }
+
+            return slices;
+        }
 
 
 

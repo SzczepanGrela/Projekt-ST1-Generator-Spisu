@@ -17,6 +17,22 @@ namespace Generator_Spisu.Forms
         public PropertySettings()
         {
             InitializeComponent();
+            this.Load += new EventHandler(PropertySettings_Load);
+        }
+
+        private void PropertySettings_Load(object sender, EventArgs e)
+        {
+            List<ProductAttribute> attributes = AttributeList.GetAttributes();
+
+            List<AttributeSlice> slices = AttributeSlice.AttributeSliceFactory(attributes);
+
+            foreach (AttributeSlice slice in slices)
+            {
+                slice.Dock = DockStyle.Top;
+                slice.Visible = true;
+                this.SlicePanel.Controls.Add(slice);
+            }
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
