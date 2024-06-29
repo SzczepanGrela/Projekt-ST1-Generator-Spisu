@@ -14,7 +14,7 @@ namespace Generator_Spisu.Classes.FileOperations
             Config config = loader.LoadConfig(settingsPath);
 
 
-            List<string> columnHeaders = config.settings.GetColumnHeaders();
+            List<string> columnHeaders = AttributeList.GetAttributeNames();
             List<string> columnWidths = config.settings.ColumnWidths;
 
 

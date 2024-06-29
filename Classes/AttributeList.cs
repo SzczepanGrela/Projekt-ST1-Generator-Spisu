@@ -142,7 +142,7 @@ namespace Generator_Spisu.Classes
 
         internal static List<string> GetAttributeNames()
         {
-            throw new NotImplementedException();
+            return _attributes.Select(x => x.Name).ToList();
         }
     }
 }
