@@ -17,6 +17,7 @@ namespace Generator_Spisu.UserControls
     public partial class AttributeSlice : UserControl
     {
 
+
         private SliceMode sliceMode;   // if true, the slice is in edit mode
 
         private bool isExpanded = false;
@@ -38,7 +39,7 @@ namespace Generator_Spisu.UserControls
             SwitchToDisplayMode();
 
             this.AttributeNameLabel.Text = attribute.Name;
-            this.AttributeTypeLabel.Text = attribute.Type.ToString();
+            this.AttributeTypeComboBox.SelectedIndex = attributeTypeToIndex(attribute.Type);
             this.CanBeEmptyCheckBox.Checked = attribute.CanBeEmpty;
 
             if (attribute.Type == AttributeType.Enum)
@@ -51,7 +52,29 @@ namespace Generator_Spisu.UserControls
                 }
             }
 
-            
+
+        }
+
+        private int attributeTypeToIndex(AttributeType type)
+        {
+            switch (type)
+            {
+                case AttributeType.String:
+                    return 0;
+                case AttributeType.Int:
+                    return 1;
+                case AttributeType.Double:
+                    return 2;
+                case AttributeType.Bool:
+                    return 3;
+                case AttributeType.DateTime:
+                    return 4;
+                case AttributeType.Enum:
+                    return 5;
+                default:
+                    throw new NotImplementedException();
+
+            }
         }
 
         private void SwitchToEditMode()
@@ -64,8 +87,8 @@ namespace Generator_Spisu.UserControls
             this.AttributeNameLabel.Visible = false;
 
 
-            this.AttributeTypeComboBox.Visible = true;
-            this.AttributeTypeLabel.Visible = false;
+            this.AttributeTypeComboBox.Enabled = true;
+            
 
             this.CanBeEmptyCheckBox.Enabled = true;
 
@@ -82,14 +105,18 @@ namespace Generator_Spisu.UserControls
             this.AttributeNameTextBox.Visible = false;
             this.AttributeNameLabel.Visible = true;
 
-            this.AttributeTypeComboBox.Visible = false;
-            this.AttributeTypeLabel.Visible = true;
-            this.AttributeTypeLabel.Text = this.AttributeTypeComboBox.Text;
+            //this.AttributeTypeComboBox.Visible = false;
+            //this.AttributeTypeLabel.Visible = true;
+            //this.AttributeTypeLabel.Text = this.AttributeTypeComboBox.Text;
+            this.AttributeTypeComboBox.Enabled = false;
 
             this.CanBeEmptyCheckBox.Enabled = false;
 
             DisableExpandedControls();
         }
+
+
+
 
 
         private void DisableExpandedControls()
@@ -137,10 +164,34 @@ namespace Generator_Spisu.UserControls
 
         public AttributeType GetAttributeType()
         {
+            AttributeType attributeType;
 
-            if (this.AttributeTypeComboBox.Text == "Wybierz typ") throw new ArgumentException("Nie wybrano typu atrybutu");
 
-            AttributeType attributeType = (AttributeType)Enum.Parse(typeof(AttributeType), this.AttributeTypeComboBox.Text);
+            switch (this.AttributeTypeComboBox.SelectedIndex)
+            {
+                case 0:
+                    attributeType = AttributeType.String;
+                    break;
+                case 1:
+                    attributeType = AttributeType.Int;
+                    break;
+                case 2:
+                    attributeType = AttributeType.Double;
+                    break;
+                case 3:
+                    attributeType = AttributeType.Bool;
+                    break;
+                case 4:
+                    attributeType = AttributeType.DateTime;
+                    break;
+                case 5:
+                    attributeType = AttributeType.Enum;
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+
             return attributeType;
 
 
@@ -167,7 +218,7 @@ namespace Generator_Spisu.UserControls
                 List<string> enumValues = new List<string>();
                 if (AttributeTypeComboBox.SelectedIndex == 5)
                 {
-                    enumValues = this.enumValues;
+                    enumValues = this.GetEnumValues();
                 }
                 return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues);
             }
@@ -177,6 +228,15 @@ namespace Generator_Spisu.UserControls
                 return null;
             }
 
+        }
+
+        private List<string> GetEnumValues()
+        {
+            string values = this.TypesListLabel.Text;
+            List<string> enumValues = new List<string>();
+            enumValues = values.Split(',').ToList();
+
+            return enumValues;
         }
 
         private void AttributeTypeLabel_Click(object sender, EventArgs e)

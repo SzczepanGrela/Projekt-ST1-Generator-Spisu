@@ -40,6 +40,9 @@ namespace Generator_Spisu.Classes
 
         }
 
+        
+
+
         public static void RemoveAttribute(ProductAttribute attribute)
         {
             _attributes.Remove(attribute);
@@ -89,13 +92,10 @@ namespace Generator_Spisu.Classes
         private static void OnAttributesChanged(EventArgs e)
         {
             AttributesChanged?.Invoke(null, e);
-            SaveAttributesToFile("attributes.txt"); // Zapis do pliku po każdej zmianie
+            
         }
 
-        private static void SaveAttributesToFile(string filePath)
-        {
-           
-        }
+       
 
         internal static List<string> GetAttributesToCsv()
         {
@@ -123,7 +123,9 @@ namespace Generator_Spisu.Classes
 
         internal static void SetAttributesFromCsv(List<string> lines)
         {
-            _attributes.Clear();
+            
+
+            List<ProductAttribute> productAttributes = new List<ProductAttribute>();
             
             foreach (string line in lines)
             {
@@ -131,8 +133,10 @@ namespace Generator_Spisu.Classes
                 string[] enumValues = values[3].Split(',');
                 
                 ProductAttribute attribute = new ProductAttribute(values[0], (AttributeType)Enum.Parse(typeof(AttributeType), values[1]), bool.Parse(values[2]), enumValues.ToList());
-                _attributes.Add(attribute);
+                productAttributes.Add(attribute);
             }
+
+            SetAttributes(productAttributes);
            
         }
 

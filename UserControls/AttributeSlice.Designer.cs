@@ -34,7 +34,6 @@
             this.ConfirmAndEditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AttributeNameLabel = new System.Windows.Forms.Label();
-            this.AttributeTypeLabel = new System.Windows.Forms.Label();
             this.ArrowLabel = new System.Windows.Forms.Label();
             this.ExpandedPanel = new System.Windows.Forms.Panel();
             this.ClearEnumValuesButton = new System.Windows.Forms.Button();
@@ -48,10 +47,10 @@
             // AttributeNameTextBox
             // 
             this.AttributeNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AttributeNameTextBox.Location = new System.Drawing.Point(32, 16);
-            this.AttributeNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AttributeNameTextBox.Location = new System.Drawing.Point(43, 20);
+            this.AttributeNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttributeNameTextBox.Name = "AttributeNameTextBox";
-            this.AttributeNameTextBox.Size = new System.Drawing.Size(186, 29);
+            this.AttributeNameTextBox.Size = new System.Drawing.Size(247, 34);
             this.AttributeNameTextBox.TabIndex = 0;
             this.AttributeNameTextBox.Text = "Przykładowa Nazwa";
             // 
@@ -61,27 +60,26 @@
             this.AttributeTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AttributeTypeComboBox.FormattingEnabled = true;
             this.AttributeTypeComboBox.Items.AddRange(new object[] {
-            "Wybierz typ",
             "Tekst",
             "Liczba (całkowita)",
             "Liczba (rzeczywista)",
             "Prawda/Fałsz",
             "Data",
             "Typ wybierany"});
-            this.AttributeTypeComboBox.Location = new System.Drawing.Point(258, 16);
-            this.AttributeTypeComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.AttributeTypeComboBox.Location = new System.Drawing.Point(344, 20);
+            this.AttributeTypeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AttributeTypeComboBox.Name = "AttributeTypeComboBox";
-            this.AttributeTypeComboBox.Size = new System.Drawing.Size(156, 32);
+            this.AttributeTypeComboBox.Size = new System.Drawing.Size(207, 37);
             this.AttributeTypeComboBox.TabIndex = 1;
             // 
             // CanBeEmptyCheckBox
             // 
             this.CanBeEmptyCheckBox.AutoSize = true;
             this.CanBeEmptyCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CanBeEmptyCheckBox.Location = new System.Drawing.Point(480, 18);
-            this.CanBeEmptyCheckBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CanBeEmptyCheckBox.Location = new System.Drawing.Point(640, 22);
+            this.CanBeEmptyCheckBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CanBeEmptyCheckBox.Name = "CanBeEmptyCheckBox";
-            this.CanBeEmptyCheckBox.Size = new System.Drawing.Size(172, 28);
+            this.CanBeEmptyCheckBox.Size = new System.Drawing.Size(214, 33);
             this.CanBeEmptyCheckBox.TabIndex = 2;
             this.CanBeEmptyCheckBox.Text = "Może być puste?";
             this.CanBeEmptyCheckBox.UseVisualStyleBackColor = true;
@@ -91,10 +89,10 @@
             this.ConfirmAndEditButton.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ConfirmAndEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ConfirmAndEditButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ConfirmAndEditButton.Location = new System.Drawing.Point(685, 13);
-            this.ConfirmAndEditButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ConfirmAndEditButton.Location = new System.Drawing.Point(913, 16);
+            this.ConfirmAndEditButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ConfirmAndEditButton.Name = "ConfirmAndEditButton";
-            this.ConfirmAndEditButton.Size = new System.Drawing.Size(93, 36);
+            this.ConfirmAndEditButton.Size = new System.Drawing.Size(124, 44);
             this.ConfirmAndEditButton.TabIndex = 3;
             this.ConfirmAndEditButton.Text = "Zatwierdź";
             this.ConfirmAndEditButton.UseVisualStyleBackColor = false;
@@ -105,10 +103,10 @@
             this.RemoveButton.BackColor = System.Drawing.SystemColors.Control;
             this.RemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.RemoveButton.ForeColor = System.Drawing.Color.Red;
-            this.RemoveButton.Location = new System.Drawing.Point(806, 15);
-            this.RemoveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.RemoveButton.Location = new System.Drawing.Point(1075, 18);
+            this.RemoveButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(73, 31);
+            this.RemoveButton.Size = new System.Drawing.Size(97, 38);
             this.RemoveButton.TabIndex = 4;
             this.RemoveButton.Text = "Usuń";
             this.RemoveButton.UseVisualStyleBackColor = false;
@@ -118,35 +116,22 @@
             // 
             this.AttributeNameLabel.AutoSize = true;
             this.AttributeNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AttributeNameLabel.Location = new System.Drawing.Point(28, 20);
-            this.AttributeNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.AttributeNameLabel.Location = new System.Drawing.Point(37, 25);
             this.AttributeNameLabel.Name = "AttributeNameLabel";
-            this.AttributeNameLabel.Size = new System.Drawing.Size(181, 24);
+            this.AttributeNameLabel.Size = new System.Drawing.Size(231, 29);
             this.AttributeNameLabel.TabIndex = 5;
             this.AttributeNameLabel.Text = "Przykładowa Nazwa";
             this.AttributeNameLabel.Visible = false;
-            // 
-            // AttributeTypeLabel
-            // 
-            this.AttributeTypeLabel.AutoSize = true;
-            this.AttributeTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AttributeTypeLabel.Location = new System.Drawing.Point(262, 20);
-            this.AttributeTypeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AttributeTypeLabel.Name = "AttributeTypeLabel";
-            this.AttributeTypeLabel.Size = new System.Drawing.Size(155, 24);
-            this.AttributeTypeLabel.TabIndex = 6;
-            this.AttributeTypeLabel.Text = "Przykładowy Typ";
-            this.AttributeTypeLabel.Visible = false;
-            this.AttributeTypeLabel.Click += new System.EventHandler(this.AttributeTypeLabel_Click);
             // 
             // ArrowLabel
             // 
             this.ArrowLabel.AutoSize = true;
             this.ArrowLabel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ArrowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ArrowLabel.Location = new System.Drawing.Point(431, 16);
+            this.ArrowLabel.Location = new System.Drawing.Point(575, 20);
+            this.ArrowLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ArrowLabel.Name = "ArrowLabel";
-            this.ArrowLabel.Size = new System.Drawing.Size(35, 39);
+            this.ArrowLabel.Size = new System.Drawing.Size(42, 48);
             this.ArrowLabel.TabIndex = 7;
             this.ArrowLabel.Text = "↓";
             this.ArrowLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -159,17 +144,19 @@
             this.ExpandedPanel.Controls.Add(this.AddEnumValueButton);
             this.ExpandedPanel.Controls.Add(this.newTypeTextBox);
             this.ExpandedPanel.Controls.Add(this.TypesListLabel);
-            this.ExpandedPanel.Location = new System.Drawing.Point(32, 70);
+            this.ExpandedPanel.Location = new System.Drawing.Point(43, 86);
+            this.ExpandedPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ExpandedPanel.Name = "ExpandedPanel";
-            this.ExpandedPanel.Size = new System.Drawing.Size(847, 76);
+            this.ExpandedPanel.Size = new System.Drawing.Size(1129, 94);
             this.ExpandedPanel.TabIndex = 8;
             // 
             // ClearEnumValuesButton
             // 
             this.ClearEnumValuesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ClearEnumValuesButton.Location = new System.Drawing.Point(653, 43);
+            this.ClearEnumValuesButton.Location = new System.Drawing.Point(871, 53);
+            this.ClearEnumValuesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ClearEnumValuesButton.Name = "ClearEnumValuesButton";
-            this.ClearEnumValuesButton.Size = new System.Drawing.Size(92, 28);
+            this.ClearEnumValuesButton.Size = new System.Drawing.Size(123, 34);
             this.ClearEnumValuesButton.TabIndex = 4;
             this.ClearEnumValuesButton.Text = "Wyczyść";
             this.ClearEnumValuesButton.UseVisualStyleBackColor = true;
@@ -179,18 +166,20 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(98, 48);
+            this.label1.Location = new System.Drawing.Point(131, 59);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 20);
+            this.label1.Size = new System.Drawing.Size(277, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "Dodaj pojedyncze typy wyboru";
             // 
             // AddEnumValueButton
             // 
             this.AddEnumValueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddEnumValueButton.Location = new System.Drawing.Point(528, 43);
+            this.AddEnumValueButton.Location = new System.Drawing.Point(704, 53);
+            this.AddEnumValueButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.AddEnumValueButton.Name = "AddEnumValueButton";
-            this.AddEnumValueButton.Size = new System.Drawing.Size(92, 28);
+            this.AddEnumValueButton.Size = new System.Drawing.Size(123, 34);
             this.AddEnumValueButton.TabIndex = 2;
             this.AddEnumValueButton.Text = "Dodaj";
             this.AddEnumValueButton.UseVisualStyleBackColor = true;
@@ -199,37 +188,38 @@
             // newTypeTextBox
             // 
             this.newTypeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.newTypeTextBox.Location = new System.Drawing.Point(356, 45);
+            this.newTypeTextBox.Location = new System.Drawing.Point(475, 55);
+            this.newTypeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.newTypeTextBox.Name = "newTypeTextBox";
-            this.newTypeTextBox.Size = new System.Drawing.Size(144, 26);
+            this.newTypeTextBox.Size = new System.Drawing.Size(191, 30);
             this.newTypeTextBox.TabIndex = 1;
             // 
             // TypesListLabel
             // 
             this.TypesListLabel.AutoSize = true;
             this.TypesListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.TypesListLabel.Location = new System.Drawing.Point(27, 10);
+            this.TypesListLabel.Location = new System.Drawing.Point(36, 12);
+            this.TypesListLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TypesListLabel.Name = "TypesListLabel";
-            this.TypesListLabel.Size = new System.Drawing.Size(0, 20);
+            this.TypesListLabel.Size = new System.Drawing.Size(0, 25);
             this.TypesListLabel.TabIndex = 0;
             // 
             // AttributeSlice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.ExpandedPanel);
             this.Controls.Add(this.ArrowLabel);
-            this.Controls.Add(this.AttributeTypeLabel);
             this.Controls.Add(this.AttributeNameLabel);
             this.Controls.Add(this.RemoveButton);
             this.Controls.Add(this.ConfirmAndEditButton);
             this.Controls.Add(this.CanBeEmptyCheckBox);
             this.Controls.Add(this.AttributeTypeComboBox);
             this.Controls.Add(this.AttributeNameTextBox);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "AttributeSlice";
-            this.Size = new System.Drawing.Size(900, 62);
+            this.Size = new System.Drawing.Size(1200, 76);
             this.ExpandedPanel.ResumeLayout(false);
             this.ExpandedPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -245,7 +235,6 @@
         private System.Windows.Forms.Button ConfirmAndEditButton;
         private System.Windows.Forms.Button RemoveButton;
         private System.Windows.Forms.Label AttributeNameLabel;
-        private System.Windows.Forms.Label AttributeTypeLabel;
         private System.Windows.Forms.Label ArrowLabel;
         private System.Windows.Forms.Panel ExpandedPanel;
         private System.Windows.Forms.Label label1;

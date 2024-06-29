@@ -1,12 +1,5 @@
 {
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ],
+  
   "settings": {
     "columnWidths": [ "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
     "headerFontSize": "12",

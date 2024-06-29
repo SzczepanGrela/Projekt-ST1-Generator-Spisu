@@ -18,7 +18,16 @@ namespace Generator_Spisu.Forms
         {
             InitializeComponent();
             this.Load += new EventHandler(PropertySettings_Load);
+
+           
         }
+
+       
+
+
+        
+
+
 
         private void PropertySettings_Load(object sender, EventArgs e)
         {
@@ -94,7 +103,7 @@ namespace Generator_Spisu.Forms
                     
                     if (unchangedName) throw new Exception("Przynajmniej jeden nienazwany atrybut");
 
-                    attributes.Append(slice.GetAttribute());
+                    attributes.Add(slice.GetAttribute());
 
                 }
 

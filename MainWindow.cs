@@ -28,12 +28,26 @@ namespace Generator_Spisu
 
             DynamicDataDisplaySlice.ProductEdit += HandleProductEdit;
 
+            AttributeList.AttributesChanged += HandleAttributesChanged;
+
+            
+
 
             AttributeList.SetAttributesFromSettings();
             InitializeUserControls();
 
 
 
+        }
+
+        private void HandleAttributesChanged(object sender, EventArgs e)
+        {
+            this.AttributeNamesPanel.Controls.Clear();
+            AddAttributeNamesSlice();
+            this.AttributesPanel.Controls.Clear();
+            InitializeUserControls();
+            this.DataSlicePanel.Controls.Clear();
+            
         }
 
         private void dataInsertSlice1_Load(object sender, EventArgs e)
@@ -113,6 +127,8 @@ namespace Generator_Spisu
 
 
                 ClearEverything();
+
+               
 
                 while(i< lines.Length)
                 {
@@ -416,5 +432,7 @@ namespace Generator_Spisu
 
 
     }
-}
+
+       
+    }
 }
