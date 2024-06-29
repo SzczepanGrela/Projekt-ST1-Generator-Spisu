@@ -87,6 +87,7 @@ namespace Generator_Spisu.UserControls
                     break;
                 case AttributeType.Enum:
                     newControl = new ComboBox();
+                    ((ComboBox)newControl).DropDownStyle = ComboBoxStyle.DropDownList;
                     ((ComboBox)newControl).Items.AddRange(originProductAttribute.EnumValues.ToArray());
                     break;
             }
@@ -177,8 +178,56 @@ namespace Generator_Spisu.UserControls
 
         }
 
+        internal void SetControlValue(object value)
+        {
+            Control control = InsertPanel.Controls[0]; // Rozważ przekazanie kontrolki jako parametr
 
+            try
+            {
+                switch (originProductAttribute.Type)
+                {
+                    case AttributeType.String:
+                        control.Text = value as string;
+                        break;
+                    case AttributeType.Int:
+                        if (value is decimal intValue)
+                            ((NumericUpDown)control).Value = intValue;
+                        else if(value is null) ((NumericUpDown)control).Value = 0;
+                        break;
+                    case AttributeType.Double:
+                        if (value is decimal doubleValue)
+                            ((CustomNumericUpDown)control).Value = doubleValue;
+                        else if (value is null) ((CustomNumericUpDown)control).Value = 0;
+                        break;
+                    case AttributeType.DateTime:
+                        if (value is DateTime dateTimeValue)
+                            ((DateTimePicker)control).Value = dateTimeValue;
+                        break;
+                    case AttributeType.Bool:
+                        if (value is bool boolValue)
+                            ((CheckBox)control).Checked = boolValue;
+                        else if (value is null) ((CheckBox)control).Checked = false;
+                        break;
+                    case AttributeType.Enum:
+                        ComboBox comboBox = control as ComboBox;
+                        if (comboBox != null && value != null)
+                            comboBox.SelectedItem = value.ToString();
+                        else if (value is null) comboBox.SelectedIndex = -1;
+                        break;
+                    default:
+                        throw new ArgumentException("Can't convert value to control");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"Failed to set control value. {ex.Message}", ex);
+            }
+        }
 
+        internal void ClearControl()
+        {
+            SetControlValue(null);
+        }
     }
 
 

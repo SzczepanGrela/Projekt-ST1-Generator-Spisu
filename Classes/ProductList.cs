@@ -125,14 +125,14 @@ namespace Generator_Spisu.Classes
             }
         }   
 
-        public static string[] GetProductCsvList()
+        public static List<string> GetProductCsvList()
         {
-            string[] productsCSV = new string[_products.Count];
+            List<string> productsCSV = new List<string>();
             
             for(int i=0;i<_products.Count;i++)
             {
 
-                productsCSV[i] = _products[i].ToCSVline();
+                productsCSV.Add(_products[i].ToCSVline());
                 
             }
 

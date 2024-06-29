@@ -192,6 +192,31 @@ namespace Generator_Spisu.UserControls
             return dynamicDataDisplaySlices;
         }
 
+        private void DeleteRecordButton_Click(object sender, EventArgs e)
+        {
+            ProductList.RemoveProductFromList(originProduct.Id);
+            this.Dispose();
+        }
+
+        private void EditRecordButton_Click(object sender, EventArgs e)
+        {
+            ProductEdit?.Invoke(this, new DynamicProductEventArgs(originProduct));
+        }
+
+        public static event DynamicProductEventHandler ProductEdit;
+
+        public delegate void DynamicProductEventHandler(object sender, DynamicProductEventArgs e);
 
     }
+
+    public class DynamicProductEventArgs : EventArgs
+    {
+        public DynamicProduct Product { get; private set; }
+
+        public DynamicProductEventArgs(DynamicProduct product)
+        {
+            Product = product;
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ using Generator_Spisu.Classes;
 using JsonFileOperations;
 using System.Windows.Forms;
 using Generator_Spisu.Enums;
+using DocumentFormat.OpenXml.ExtendedProperties;
 
 
 namespace Generator_Spisu.Classes
@@ -96,6 +97,43 @@ namespace Generator_Spisu.Classes
            
         }
 
+        internal static List<string> GetAttributesToCsv()
+        {
+            List <string> CsvLines = new List<string>();
 
+
+            foreach (ProductAttribute attribute in _attributes)
+            {
+                string enumValues = "";
+                if (attribute.EnumValues != null)
+                {
+                    foreach (string value in attribute.EnumValues)
+                    {
+                        enumValues += value + ",";
+                    }
+                }
+
+                string csvAttribute ="*"+ attribute.Name + ";" + attribute.Type + ";" + attribute.CanBeEmpty + ";" + enumValues;
+                
+                CsvLines.Add(csvAttribute);
+            }
+            
+            return CsvLines;
+        }
+
+        internal static void SetAttributesFromCsv(List<string> lines)
+        {
+            _attributes.Clear();
+            
+            foreach (string line in lines)
+            {
+                string[] values = line.Split(';');
+                string[] enumValues = values[3].Split(',');
+                
+                ProductAttribute attribute = new ProductAttribute(values[0], (AttributeType)Enum.Parse(typeof(AttributeType), values[1]), bool.Parse(values[2]), enumValues.ToList());
+                _attributes.Add(attribute);
+            }
+           
+        }
     }
 }

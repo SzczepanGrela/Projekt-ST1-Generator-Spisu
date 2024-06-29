@@ -84,6 +84,7 @@
     <Compile Include="Classes\AttributeList.cs" />
     <Compile Include="Classes\DynamicProduct.cs" />
     <Compile Include="Classes\FileOperations\BasicFileOperations.cs" />
+    <Compile Include="Classes\FileOperations\GspFileOperations.cs" />
     <Compile Include="Classes\FileOperations\CsvFileOperations.cs" />
     <Compile Include="Classes\FileOperations\DocxGenerator.cs" />
     <Compile Include="Classes\FileOperations\JsonSettingsOperations.cs" />
@@ -143,12 +144,6 @@
     <Compile Include="UserControls\DynamicDataInsertSlice.Designer.cs">
       <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\DynamicEmptyDataInsertSlice.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\DynamicEmptyDataInsertSlice.Designer.cs">
-      <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Toolbar.cs" />
     <Compile Include="UserControls\Toolbar.Designer.cs">
       <DependentUpon>Toolbar.cs</DependentUpon>
@@ -182,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DynamicDataInsertSlice.resx">
       <DependentUpon>DynamicDataInsertSlice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\DynamicEmptyDataInsertSlice.resx">
-      <DependentUpon>DynamicEmptyDataInsertSlice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Toolbar.resx">
       <DependentUpon>Toolbar.cs</DependentUpon>

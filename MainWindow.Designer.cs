@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nowyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +48,8 @@
             this.ButtonPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ScrollablePanel = new System.Windows.Forms.Panel();
+            this.DataSlicePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.AttributeNamesPanel = new System.Windows.Forms.Panel();
-            this.DataSlicePanel = new System.Windows.Forms.Panel();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
             this.SplitContainer.Panel1.SuspendLayout();
@@ -61,12 +59,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.ScrollablePanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // menuStrip2
             // 
@@ -186,7 +178,7 @@
             // 
             this.ConfirmButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ConfirmButton.Location = new System.Drawing.Point(333, 4);
+            this.ConfirmButton.Location = new System.Drawing.Point(333, 0);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(122, 32);
             this.ConfirmButton.TabIndex = 2;
@@ -223,9 +215,9 @@
             this.AttributesPanel.AutoScroll = true;
             this.AttributesPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AttributesPanel.Location = new System.Drawing.Point(0, 24);
-            this.AttributesPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AttributesPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.AttributesPanel.Name = "AttributesPanel";
-            this.AttributesPanel.Size = new System.Drawing.Size(782, 96);
+            this.AttributesPanel.Size = new System.Drawing.Size(782, 104);
             this.AttributesPanel.TabIndex = 4;
             this.AttributesPanel.WrapContents = false;
             // 
@@ -233,10 +225,10 @@
             // 
             this.ButtonPanel.Controls.Add(this.ConfirmButton);
             this.ButtonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ButtonPanel.Location = new System.Drawing.Point(0, 120);
-            this.ButtonPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonPanel.Location = new System.Drawing.Point(0, 128);
+            this.ButtonPanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Size = new System.Drawing.Size(782, 42);
+            this.ButtonPanel.Size = new System.Drawing.Size(782, 34);
             this.ButtonPanel.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -248,7 +240,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ScrollablePanel, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -259,15 +251,29 @@
             // ScrollablePanel
             // 
             this.ScrollablePanel.AutoScroll = true;
-            this.ScrollablePanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ScrollablePanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ScrollablePanel.Controls.Add(this.DataSlicePanel);
             this.ScrollablePanel.Controls.Add(this.AttributeNamesPanel);
             this.ScrollablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ScrollablePanel.Location = new System.Drawing.Point(20, 0);
-            this.ScrollablePanel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.ScrollablePanel.Margin = new System.Windows.Forms.Padding(0);
             this.ScrollablePanel.Name = "ScrollablePanel";
             this.ScrollablePanel.Size = new System.Drawing.Size(742, 290);
             this.ScrollablePanel.TabIndex = 0;
+            // 
+            // DataSlicePanel
+            // 
+            this.DataSlicePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DataSlicePanel.AutoScroll = true;
+            this.DataSlicePanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.DataSlicePanel.Location = new System.Drawing.Point(0, 77);
+            this.DataSlicePanel.Margin = new System.Windows.Forms.Padding(0);
+            this.DataSlicePanel.Name = "DataSlicePanel";
+            this.DataSlicePanel.Size = new System.Drawing.Size(742, 214);
+            this.DataSlicePanel.TabIndex = 1;
+            this.DataSlicePanel.WrapContents = false;
             // 
             // AttributeNamesPanel
             // 
@@ -279,18 +285,6 @@
             this.AttributeNamesPanel.Name = "AttributeNamesPanel";
             this.AttributeNamesPanel.Size = new System.Drawing.Size(742, 77);
             this.AttributeNamesPanel.TabIndex = 0;
-            // 
-            // DataSlicePanel
-            // 
-            this.DataSlicePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataSlicePanel.AutoScroll = true;
-            this.DataSlicePanel.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.DataSlicePanel.Location = new System.Drawing.Point(0, 77);
-            this.DataSlicePanel.Name = "DataSlicePanel";
-            this.DataSlicePanel.Size = new System.Drawing.Size(742, 213);
-            this.DataSlicePanel.TabIndex = 1;
             // 
             // MainWindow
             // 
@@ -318,7 +312,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zapiszToolStripMenuItem;
@@ -340,7 +333,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel ScrollablePanel;
         private System.Windows.Forms.Panel AttributeNamesPanel;
-        private System.Windows.Forms.Panel DataSlicePanel;
+        private System.Windows.Forms.FlowLayoutPanel DataSlicePanel;
     }
 }
 

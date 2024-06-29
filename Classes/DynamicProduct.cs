@@ -7,11 +7,18 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Generator_Spisu.Classes
 {
-    public class DynamicProduct : Product
+    public class DynamicProduct
     {
         private readonly Dictionary<ProductAttribute, object> _attributes;
 
-        // id proeprty is inherited from Product class
+        private int _id;
+
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         public DynamicProduct()
         {
@@ -25,6 +32,14 @@ namespace Generator_Spisu.Classes
             _attributes = attributes;
             this.Id = ProductList.GetNextId();
         }
+
+
+        public DynamicProduct(Dictionary<ProductAttribute, object> attributes, int id)
+        {
+            _attributes = attributes;
+            this.Id = id;
+        }
+
 
         public DynamicProduct(List <string> values) : this()
         {
@@ -55,7 +70,7 @@ namespace Generator_Spisu.Classes
             return _attributes;
         }
 
-        public override string ToString()
+        public string ToString()
         {
             var result = new StringBuilder("Product attributes:\n");
             foreach (var kvp in _attributes)     // kvp - key value pair
@@ -66,14 +81,14 @@ namespace Generator_Spisu.Classes
         }
 
 
-        public override string ToCSVline()
+        public string ToCSVline()
         {
             var result = new StringBuilder();
 
-            result.Append($"{Id};");
+            result.Append($"{Id}");
             foreach (var kvp in _attributes)
             {
-                result.Append($"{kvp.Value};");
+                result.Append($";{kvp.Value}");
             }
             return result.ToString();
         }
