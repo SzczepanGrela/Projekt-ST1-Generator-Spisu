@@ -224,6 +224,28 @@ namespace Generator_Spisu.UserControls
             }
         }
 
+
+        public bool ValidateData()
+        {
+            if (originProductAttribute.CanBeEmpty == false && (GetControlValue() == null || GetControlValue() == ""))
+            {
+                throw new ArgumentException($"Kolumna {originProductAttribute.Name} nie może być pusta");
+            }
+
+            if (originProductAttribute.Type == AttributeType.Enum)
+            {
+
+                var value = GetControlValue();
+                if (originProductAttribute.EnumValues.Contains(value.ToString()) == false)
+                {
+                    throw new ArgumentException($"Wartość {value} nie występuje w dopuszczonych typach");
+                }
+            }
+
+            return true;
+        }
+
+
         internal void ClearControl()
         {
             SetControlValue(null);

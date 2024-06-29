@@ -30,7 +30,7 @@ namespace Generator_Spisu
 
             AttributeList.AttributesChanged += HandleAttributesChanged;
 
-            
+
 
 
             AttributeList.SetAttributesFromSettings();
@@ -47,7 +47,7 @@ namespace Generator_Spisu
             this.AttributesPanel.Controls.Clear();
             InitializeUserControls();
             this.DataSlicePanel.Controls.Clear();
-            
+
         }
 
         private void dataInsertSlice1_Load(object sender, EventArgs e)
@@ -111,8 +111,8 @@ namespace Generator_Spisu
                 string[] lines = gspFileOperations.ReadFile();
 
 
-                 int i = 0;
-                
+                int i = 0;
+
 
                 List<string> attributeLinesList = new List<string>();
                 while (i < lines.Length && lines[i][0] == '*')
@@ -128,9 +128,9 @@ namespace Generator_Spisu
 
                 ClearEverything();
 
-               
 
-                while(i< lines.Length)
+
+                while (i < lines.Length)
                 {
                     string line = lines[i];
                     string[] values = line.Split(';');
@@ -139,12 +139,12 @@ namespace Generator_Spisu
 
                     for (int j = 1; j < values.Length; j++)
                     {
-                        ProductAttribute key = AttributeList.GetAttributes()[j-1];
+                        ProductAttribute key = AttributeList.GetAttributes()[j - 1];
                         object value = values[j];
 
                         attributesWithValues.Add(key, value);
                     }
-                    
+
                     int id = int.Parse(values[0]);
 
                     DynamicProduct product = new DynamicProduct(attributesWithValues, id);
@@ -154,285 +154,282 @@ namespace Generator_Spisu
                     i++;
                 }
 
+
+
+            }
+        }
+
+
+        private void ClearEverything()
+        {
+            DataSlicePanel.Controls.Clear();
+            ProductList.ClearList();
+
+        }
+
+        private DialogResult GetSaveFilePath()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text files (*.gsp)|*.gsp";
+                saveFileDialog.Title = "Wybierz lokalizację i nazwę pliku";
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    gspFileOperations = new GspFileOperations(saveFileDialog.FileName);
+
+                    return DialogResult.OK;
+                }
+                else
+                {
+                    return DialogResult.Cancel;
+                }
+            }
+        }
+
+
+        private string GetSaveFilePathDocx()
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Word Document (*.docx)|*.docx|All files (*.*)|*.*";
+                saveFileDialog.Title = "Wybierz lokalizację i nazwę pliku";
+                saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    return saveFileDialog.FileName;
+
+                }
+
+                else return null;
+
+
+            }
+        }
+
+
+
+        private DialogResult GetOpenFilePath()
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Text files (*.gsp)|*.gsp";
+                openFileDialog.Title = "Wybierz plik do otwarcia";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    gspFileOperations = new GspFileOperations(openFileDialog.FileName);
+
+                    return DialogResult.OK;
+                }
+                else
+                {
+                    return DialogResult.Cancel;
+                }
+            }
+        }
+
+
+        private void SaveFile()
+        {
+            List<string> lines = new List<string>();
+
+            lines = ProductList.GetProductCsvList();
+
+            List<string> attributesLines = AttributeList.GetAttributesToCsv();
+
+
+
+            lines.InsertRange(0, attributesLines);
+
+            gspFileOperations.WriteFile(lines.ToArray());
+
+
+        }
+
+        private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            // to do: popup do you want to clear everything? ll
+            ClearEverything();
+
+        }
+
+        private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // to do: popup do you want to save, are you sure you want to leave
+            Application.Exit();
+        }
+
+        private void stwórzDocxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ProductList.GetProductsCount() < 1)
+            {
+                MessageBox.Show("Nie ma nic do generowania");
+                return;
+            }
+
+            DocxGenerator docxGenerator = new DocxGenerator();
+
+            string savePath = GetSaveFilePathDocx();
+
+            if (savePath != null)
+            {
+
+                string settingsPath = "../../Settings/Attributes.json";
+
+                docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), settingsPath);
+            }
+        }
+
+        private void atrybutyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PropertySettings propertySettingsForm = new PropertySettings();
+            propertySettingsForm.ShowDialog();
+        }
+
+        private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = GetSaveFilePath();
+            if (dr == DialogResult.Cancel)
+            {
+                return;
+            }
+            ClearEverything();
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AddAttributeNamesSlice()
+        {
+
+            DynamicDataDisplaySlice AttributeNamesSlice = new DynamicDataDisplaySlice();
+
+
+
+            AttributeNamesPanel.Controls.Add(AttributeNamesSlice);
+
+        }
+
+        private void HandleProductEdit(object sender, DynamicProductEventArgs e)
+        {
+            DynamicProduct product = e.Product;
+
+            FillInsertSliceWithProduct(product);
+
+
+        }
+
+        private void FillInsertSliceWithProduct(DynamicProduct product)
+        {
+            foreach (AttributeSingleForm control in AttributesPanel.Controls)
+            {
+                ProductAttribute key = control.GetProductAttribute();
+                object value = product.GetAttributeValue(key);
+
+                control.SetControlValue(value);
+            }
+        }
+
+
+
+        private void HandleProductAdded(object sender, ProductAddedEventArgs e)
+        {
+
+            DynamicDataDisplaySlice slice = new DynamicDataDisplaySlice(e.Product);
+
+            DataSlicePanel.Controls.Add(slice);
+        }
+
+        private void InitializeUserControls()
+        {
+
+            List<ProductAttribute> attributes = AttributeList.GetAttributes();
+
+            List<AttributeSingleForm> controls = AttributeSingleForm.SingleFormsFactory(attributes);
+
+            foreach (AttributeSingleForm control in controls)
+            {
+
+                this.AttributesPanel.Controls.Add(control);
+
+            }
+
+
+
+            AddAttributeNamesSlice();
+
+
+        }
+
+        private void ConfirmButton_Click(object sender, EventArgs e)
+        {
+
+            DynamicProduct product = CreateProduct();
+
+            if(product == null) return;
+
+            ProductList.AddProductToList(product);
+
+            ClearInsertForms();
+        }
+
+        private void ClearInsertForms()
+        {
+            foreach (AttributeSingleForm control in AttributesPanel.Controls)
+            {
+                control.ClearControl();
+            }
+        }
+
+        private DynamicProduct CreateProduct()
+        {
+            Dictionary<ProductAttribute, object> attributesWithValues = new Dictionary<ProductAttribute, object>();
+
+            foreach (AttributeSingleForm control in AttributesPanel.Controls)
+            {
+
                
                 
-        }
-    }
+                try
+                {
+                    bool controlValidated = control.ValidateData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return null;
+                }
+                ProductAttribute key = control.GetProductAttribute();
+                var value = control.GetControlValue();
 
 
-    private void ClearEverything()
-    {
-        DataSlicePanel.Controls.Clear();
-        ProductList.ClearList();
 
-    }
-
-    private DialogResult GetSaveFilePath()
-    {
-        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-        {
-            saveFileDialog.Filter = "Text files (*.gsp)|*.gsp";
-            saveFileDialog.Title = "Wybierz lokalizację i nazwę pliku";
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                gspFileOperations = new GspFileOperations(saveFileDialog.FileName);
-
-                return DialogResult.OK;
-            }
-            else
-            {
-                return DialogResult.Cancel;
-            }
-        }
-    }
+                bool areTypesMatching = key.Type == control.GetProductAttribute().Type;
 
 
-    private string GetSaveFilePathDocx()
-    {
-        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-        {
-            saveFileDialog.Filter = "Word Document (*.docx)|*.docx|All files (*.*)|*.*";
-            saveFileDialog.Title = "Wybierz lokalizację i nazwę pliku";
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                if (areTypesMatching) attributesWithValues.Add(key, value);
+                else throw new ArgumentException("Types of control and attribute do not match");
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                return saveFileDialog.FileName;
 
             }
 
-            else return null;
+            return new DynamicProduct(attributesWithValues);
 
 
         }
-    }
 
 
-
-    private DialogResult GetOpenFilePath()
-    {
-        using (OpenFileDialog openFileDialog = new OpenFileDialog())
-        {
-            openFileDialog.Filter = "Text files (*.gsp)|*.gsp";
-            openFileDialog.Title = "Wybierz plik do otwarcia";
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                gspFileOperations = new GspFileOperations(openFileDialog.FileName);
-
-                return DialogResult.OK;
-            }
-            else
-            {
-                return DialogResult.Cancel;
-            }
-        }
-    }
-
-
-    private void SaveFile()
-    {
-        List<string> lines = new List<string>();
-
-        lines = ProductList.GetProductCsvList();
-
-        List<string> attributesLines = AttributeList.GetAttributesToCsv();
-
-
-
-        lines.InsertRange(0, attributesLines);
-
-        gspFileOperations.WriteFile(lines.ToArray());
-
-
-    }
-
-    private void wyczyśćToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-        // to do: popup do you want to clear everything? ll
-        ClearEverything();
-
-    }
-
-    private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        // to do: popup do you want to save, are you sure you want to leave
-        Application.Exit();
-    }
-
-    private void stwórzDocxToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        if (ProductList.GetProductsCount() < 1)
-        {
-            MessageBox.Show("Nie ma nic do generowania");
-            return;
-        }
-
-        DocxGenerator docxGenerator = new DocxGenerator();
-
-        string savePath = GetSaveFilePathDocx();
-
-        if (savePath != null)
-        {
-
-            string settingsPath = "../../Settings/Attributes.json";
-
-            docxGenerator.GenerateDocument(savePath, ProductList.GetProductLists(), settingsPath);
-        }
-    }
-
-    private void atrybutyToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        PropertySettings propertySettingsForm = new PropertySettings();
-        propertySettingsForm.ShowDialog();
-    }
-
-    private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        DialogResult dr = GetSaveFilePath();
-        if (dr == DialogResult.Cancel)
-        {
-            return;
-        }
-        ClearEverything();
-    }
-
-    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void AddAttributeNamesSlice()
-    {
-
-        DynamicDataDisplaySlice AttributeNamesSlice = new DynamicDataDisplaySlice();
-
-
-
-        AttributeNamesPanel.Controls.Add(AttributeNamesSlice);
-
-    }
-
-    private void HandleProductEdit(object sender, DynamicProductEventArgs e)
-    {
-        DynamicProduct product = e.Product;
-
-        FillInsertSliceWithProduct(product);
-
-
-    }
-
-    private void FillInsertSliceWithProduct(DynamicProduct product)
-    {
-        foreach (AttributeSingleForm control in AttributesPanel.Controls)
-        {
-            ProductAttribute key = control.GetProductAttribute();
-            object value = product.GetAttributeValue(key);
-
-            control.SetControlValue(value);
-        }
-    }
-
- 
-
-    private void HandleProductAdded(object sender, ProductAddedEventArgs e)
-    {
-
-        DynamicDataDisplaySlice slice = new DynamicDataDisplaySlice(e.Product);
-
-        DataSlicePanel.Controls.Add(slice);
-    }
-
-    private void InitializeUserControls()
-    {
-
-        List<ProductAttribute> attributes = AttributeList.GetAttributes();
-
-        List<AttributeSingleForm> controls = AttributeSingleForm.SingleFormsFactory(attributes);
-
-        foreach (AttributeSingleForm control in controls)
-        {
-
-            this.AttributesPanel.Controls.Add(control);
-
-        }
-
-
-
-        AddAttributeNamesSlice();
-
-
-    }
-
-    private void ConfirmButton_Click(object sender, EventArgs e)
-    {
-
-        DynamicProduct product = CreateProduct();
-
-        ProductList.AddProductToList(product);
-
-        ClearInsertForms();
-    }
-
-    private void ClearInsertForms()
-    {
-        foreach (AttributeSingleForm control in AttributesPanel.Controls)
-        {
-            control.ClearControl();
-        }
-    }
-
-    private DynamicProduct CreateProduct()
-    {
-        Dictionary<ProductAttribute, object> attributesWithValues = new Dictionary<ProductAttribute, object>();
-
-        foreach (AttributeSingleForm control in AttributesPanel.Controls)
-        {
-
-            ProductAttribute key = control.GetProductAttribute();
-            var value = control.GetControlValue();
-
-            bool isIncorrectEnum = key.Type == AttributeType.Enum && !key.EnumValues.Contains(value);
-
-            if (isIncorrectEnum)
-            {
-                MessageBox.Show("Niepoprawna wartość dla atrybutu " + key.Name);
-                return null;
-            }
-
-
-            bool isEmptyWhenNotAllowed = key.CanBeEmpty == false && (value as string == "" || value == null);
-
-            if (isEmptyWhenNotAllowed)
-            {
-                MessageBox.Show("Atrybut " + key.Name + " nie może być pusty");
-                return null;
-            }
-
-
-            bool areTypesMatching = key.Type == control.GetProductAttribute().Type;
-
-
-            if (areTypesMatching) attributesWithValues.Add(key, value);
-            else throw new ArgumentException("Types of control and attribute do not match");
-
-
-        }
-
-        return new DynamicProduct(attributesWithValues);
-
-
-    }
-
-       
     }
 }
