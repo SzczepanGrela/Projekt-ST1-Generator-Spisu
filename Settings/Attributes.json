@@ -1,57 +1,80 @@
 {
-  
-  "settings": {
-    "columnWidths": [ "1500", "400", "800", "800", "800", "800", "800", "800", "800" ],
-    "headerFontSize": "12",
-    "headerFontColor": "#000000",
-    "attributes": [
-      
-      {
-        "name": "Towar",
-        "type": "String",
-        "allowNull": false
-      },
-      {
-        "name": "J.M.",
-        "type": "Enum",
-        "enumValues": ["Szt","Kg","L"],
-        "allowNull": false
-      },
-      {
-        "name": "Ilość",
-        "type": "Int",
-        "allowNull": false
-      },
-      {
-        "name": "Wartość",
-        "type": "Double",
-        "allowNull": false
-      },
-      {
-        "name": "Ilość",
-        "type": "Int",
-        "allowNull": false
-      },
-      {
-        "name": "Wartość",
-        "type": "Double",
-        "allowNull": false
-      },
-      {
-        "name": "Ilość",
-        "type": "Int",
-        "allowNull": false
-      },
-      {
-        "name": "Wartość",
-        "type": "Double",
-        "allowNull": false
-      },
-      {
-        "name": "Magazyn",
-        "type": "Int",
-        "allowNull": false
-      }
-    ]
-  }
+  "Attributes": [
+    {
+      "Name": "Towar",
+      "Type": "String",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 1500,
+      "IsBold": false
+    },
+    {
+      "Name": "J.M.",
+      "Type": "Enum",
+      "AllowNull": false,
+      "EnumValues": [
+        "Szt",
+        "  Kg",
+        "  L"
+      ],
+      "ColumnWidth": 400,
+      "IsBold": false
+    },
+    {
+      "Name": "Ilo\u015B\u0107",
+      "Type": "Int",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Warto\u015B\u0107",
+      "Type": "Double",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Ilo\u015B\u0107",
+      "Type": "Int",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Warto\u015B\u0107",
+      "Type": "Double",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Ilo\u015B\u0107",
+      "Type": "Int",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Warto\u015B\u0107",
+      "Type": "Double",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    },
+    {
+      "Name": "Magazyn",
+      "Type": "Int",
+      "AllowNull": false,
+      "EnumValues": [],
+      "ColumnWidth": 800,
+      "IsBold": false
+    }
+  ]
 }

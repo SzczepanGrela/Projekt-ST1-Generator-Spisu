@@ -400,8 +400,6 @@ namespace Generator_Spisu
             foreach (AttributeSingleForm control in AttributesPanel.Controls)
             {
 
-               
-                
                 try
                 {
                     bool controlValidated = control.ValidateData();

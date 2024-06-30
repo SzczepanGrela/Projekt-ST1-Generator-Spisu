@@ -169,6 +169,9 @@
     <EmbeddedResource Include="UserControls\AttributeSlice.resx">
       <DependentUpon>AttributeSlice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CustomNumericUpDown.resx">
+      <DependentUpon>CustomNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\DataDisplayCell.resx">
       <DependentUpon>DataDisplayCell.cs</DependentUpon>
     </EmbeddedResource>

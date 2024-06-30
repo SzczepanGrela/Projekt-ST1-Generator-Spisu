@@ -20,7 +20,7 @@ namespace Generator_Spisu.UserControls
         public AttributeSingleForm()
         {
             InitializeComponent();
-            originProductAttribute = new ProductAttribute("Name", AttributeType.String, true, null);
+            originProductAttribute = new ProductAttribute("Name", AttributeType.String, true, null,300, false);
 
             SetupForm();
             AdjustPanelWidth();
@@ -74,6 +74,8 @@ namespace Generator_Spisu.UserControls
                     break;
                 case AttributeType.Int:
                     newControl = new NumericUpDown();
+                    ((NumericUpDown)newControl).Maximum = 1000;
+                    
                     break;
                 case AttributeType.Double:
                     newControl = new CustomNumericUpDown();

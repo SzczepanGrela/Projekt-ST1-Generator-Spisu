@@ -41,14 +41,16 @@ namespace Generator_Spisu.UserControls
             this.AttributeNameLabel.Text = attribute.Name;
             this.AttributeTypeComboBox.SelectedIndex = attributeTypeToIndex(attribute.Type);
             this.CanBeEmptyCheckBox.Checked = attribute.CanBeEmpty;
+            this.columnWidthUpDown.Value = attribute.ColumnWidth;
+            this.isBoldCheckBox.Checked = attribute.IsBold;
 
             if (attribute.Type == AttributeType.Enum)
             {
                 this.enumValues = attribute.EnumValues;
                 foreach (string enumValue in attribute.EnumValues)
                 {
-                    if (this.TypesListLabel.Text.Length > 0) this.TypesListLabel.Text += ", ";
-                    this.TypesListLabel.Text += enumValue;
+                    if (this.TypesListTextBox.Text.Length > 0) this.TypesListTextBox.Text += ", ";
+                    this.TypesListTextBox.Text += enumValue;
                 }
             }
 
@@ -96,7 +98,7 @@ namespace Generator_Spisu.UserControls
 
         }
 
-        private void SwitchToDisplayMode()
+        public void SwitchToDisplayMode()
         {
             this.sliceMode = SliceMode.Display;
             this.ConfirmAndEditButton.Text = "Edytuj";
@@ -162,6 +164,16 @@ namespace Generator_Spisu.UserControls
             return this.AttributeNameLabel.Text;
         }
 
+        public int GetColumnWidth()
+        {
+          return (int)columnWidthUpDown.Value;
+        }
+
+        public bool GetIsBold()
+        {
+            return this.isBoldCheckBox.Checked;
+        }
+
         public AttributeType GetAttributeType()
         {
             AttributeType attributeType;
@@ -220,7 +232,7 @@ namespace Generator_Spisu.UserControls
                 {
                     enumValues = this.GetEnumValues();
                 }
-                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues);
+                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues, this.GetColumnWidth(), this.GetIsBold());
             }
             catch (Exception e)
             {
@@ -232,7 +244,7 @@ namespace Generator_Spisu.UserControls
 
         private List<string> GetEnumValues()
         {
-            string values = this.TypesListLabel.Text;
+            string values = this.TypesListTextBox.Text;
             List<string> enumValues = new List<string>();
             enumValues = values.Split(',').ToList();
 
@@ -301,9 +313,9 @@ namespace Generator_Spisu.UserControls
                     return;
                 }
             }
-            if (enumValues.Count > 0) this.TypesListLabel.Text += ", ";
+            if (enumValues.Count > 0) this.TypesListTextBox.Text += ", ";
 
-            this.TypesListLabel.Text += newEnumValue;
+            this.TypesListTextBox.Text += newEnumValue;
 
             this.enumValues.Add(newEnumValue);
 
@@ -313,7 +325,7 @@ namespace Generator_Spisu.UserControls
         private void clearEnumValues()
         {
             this.enumValues.Clear();
-            this.TypesListLabel.Text = "";
+            this.TypesListTextBox.Text = "";
         }
 
 

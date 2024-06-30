@@ -71,7 +71,7 @@
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1043, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1316, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -178,8 +178,8 @@
             // 
             this.ConfirmButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ConfirmButton.Location = new System.Drawing.Point(444, 0);
-            this.ConfirmButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ConfirmButton.Location = new System.Drawing.Point(581, 0);
+            this.ConfirmButton.Margin = new System.Windows.Forms.Padding(4);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(163, 39);
             this.ConfirmButton.TabIndex = 2;
@@ -193,7 +193,7 @@
             this.SplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.SplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SplitContainer.Margin = new System.Windows.Forms.Padding(4);
             this.SplitContainer.Name = "SplitContainer";
             this.SplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -208,7 +208,7 @@
             // SplitContainer.Panel2
             // 
             this.SplitContainer.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.SplitContainer.Size = new System.Drawing.Size(1045, 566);
+            this.SplitContainer.Size = new System.Drawing.Size(1318, 748);
             this.SplitContainer.SplitterDistance = 164;
             this.SplitContainer.SplitterWidth = 5;
             this.SplitContainer.TabIndex = 0;
@@ -220,7 +220,7 @@
             this.AttributesPanel.Location = new System.Drawing.Point(0, 28);
             this.AttributesPanel.Margin = new System.Windows.Forms.Padding(0);
             this.AttributesPanel.Name = "AttributesPanel";
-            this.AttributesPanel.Size = new System.Drawing.Size(1043, 92);
+            this.AttributesPanel.Size = new System.Drawing.Size(1316, 92);
             this.AttributesPanel.TabIndex = 4;
             this.AttributesPanel.WrapContents = false;
             // 
@@ -231,7 +231,7 @@
             this.ButtonPanel.Location = new System.Drawing.Point(0, 120);
             this.ButtonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Size = new System.Drawing.Size(1043, 42);
+            this.ButtonPanel.Size = new System.Drawing.Size(1316, 42);
             this.ButtonPanel.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -248,7 +248,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1043, 395);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1316, 577);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ScrollablePanel
@@ -261,7 +261,7 @@
             this.ScrollablePanel.Location = new System.Drawing.Point(27, 0);
             this.ScrollablePanel.Margin = new System.Windows.Forms.Padding(0);
             this.ScrollablePanel.Name = "ScrollablePanel";
-            this.ScrollablePanel.Size = new System.Drawing.Size(989, 395);
+            this.ScrollablePanel.Size = new System.Drawing.Size(1262, 577);
             this.ScrollablePanel.TabIndex = 0;
             // 
             // DataSlicePanel
@@ -274,7 +274,7 @@
             this.DataSlicePanel.Location = new System.Drawing.Point(0, 95);
             this.DataSlicePanel.Margin = new System.Windows.Forms.Padding(0);
             this.DataSlicePanel.Name = "DataSlicePanel";
-            this.DataSlicePanel.Size = new System.Drawing.Size(989, 301);
+            this.DataSlicePanel.Size = new System.Drawing.Size(1262, 483);
             this.DataSlicePanel.TabIndex = 1;
             this.DataSlicePanel.WrapContents = false;
             // 
@@ -286,17 +286,17 @@
             this.AttributeNamesPanel.Location = new System.Drawing.Point(0, 0);
             this.AttributeNamesPanel.Margin = new System.Windows.Forms.Padding(0);
             this.AttributeNamesPanel.Name = "AttributeNamesPanel";
-            this.AttributeNamesPanel.Size = new System.Drawing.Size(989, 95);
+            this.AttributeNamesPanel.Size = new System.Drawing.Size(1262, 95);
             this.AttributeNamesPanel.TabIndex = 0;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 566);
+            this.ClientSize = new System.Drawing.Size(1318, 748);
             this.Controls.Add(this.SplitContainer);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1061, 601);
             this.Name = "MainWindow";
             this.Text = "Generator Spisu";

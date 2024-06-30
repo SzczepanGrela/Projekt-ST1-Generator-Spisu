@@ -18,30 +18,22 @@ namespace JsonFileOperations
         public bool AllowNull { get; set; }
 
         public List<string> EnumValues { get; set; }
+
+        public int ColumnWidth { get; set; }
+
+        public bool IsBold { get; set; }
     }
 
-    public class JsonSettingsOperations
-    {
-        
-        public List<string> ColumnWidths { get; set; }
-        public string HeaderFontSize { get; set; }
-        public string HeaderFontColor { get; set; }
-        public List<string> EnumValues { get; set; }
-        public List<Attribute> Attributes { get; set; }
-
-        public List<string> GetColumnHeaders()
-        {
-            return Attributes.ConvertAll(x => x.Name);
-        }
-    }
-
+ 
 
 
     public class Config
     {
-        public JsonSettingsOperations settings { get; set; }
+        public List<Attribute> Attributes { get; set; }
 
-        
+        //public string HeaderFontSize { get; set; }
+
+
     }
 
     public class JsonConfigLoader
@@ -55,6 +47,18 @@ namespace JsonFileOperations
             };
             return JsonSerializer.Deserialize<Config>(jsonString, options);
         }
+
+        public void SaveConfig(Config config, string filePath)
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true // makes the json file more readable
+            };
+            var jsonString = JsonSerializer.Serialize(config, options);
+            File.WriteAllText(filePath, jsonString);
+        }
+
+
     }
 
     

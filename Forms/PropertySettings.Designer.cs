@@ -32,10 +32,10 @@
             this.SetAttributesButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.SaveToJsonButton = new System.Windows.Forms.Button();
             this.addSliceButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.SlicePanel = new System.Windows.Forms.Panel();
-            this.SaveToJsonButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -56,13 +56,13 @@
             // 
             this.SetAttributesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SetAttributesButton.Location = new System.Drawing.Point(592, 16);
-            this.SetAttributesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SetAttributesButton.Margin = new System.Windows.Forms.Padding(4);
             this.SetAttributesButton.Name = "SetAttributesButton";
             this.SetAttributesButton.Size = new System.Drawing.Size(151, 64);
             this.SetAttributesButton.TabIndex = 1;
             this.SetAttributesButton.Text = "Ustaw";
             this.SetAttributesButton.UseVisualStyleBackColor = true;
-            this.SetAttributesButton.Click += new System.EventHandler(this.SaveSettingsButton_Click);
+            this.SetAttributesButton.Click += new System.EventHandler(this.SetSettings_Click);
             // 
             // label11
             // 
@@ -86,13 +86,27 @@
             this.panel2.Size = new System.Drawing.Size(1309, 100);
             this.panel2.TabIndex = 33;
             // 
+            // SaveToJsonButton
+            // 
+            this.SaveToJsonButton.BackColor = System.Drawing.Color.MistyRose;
+            this.SaveToJsonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SaveToJsonButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SaveToJsonButton.Location = new System.Drawing.Point(1125, 23);
+            this.SaveToJsonButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SaveToJsonButton.Name = "SaveToJsonButton";
+            this.SaveToJsonButton.Size = new System.Drawing.Size(125, 52);
+            this.SaveToJsonButton.TabIndex = 3;
+            this.SaveToJsonButton.Text = "Zapisz";
+            this.SaveToJsonButton.UseVisualStyleBackColor = false;
+            this.SaveToJsonButton.Click += new System.EventHandler(this.SaveToJsonButton_Click);
+            // 
             // addSliceButton
             // 
             this.addSliceButton.BackColor = System.Drawing.SystemColors.HotTrack;
             this.addSliceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.addSliceButton.ForeColor = System.Drawing.Color.Bisque;
             this.addSliceButton.Location = new System.Drawing.Point(59, 23);
-            this.addSliceButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addSliceButton.Margin = new System.Windows.Forms.Padding(4);
             this.addSliceButton.Name = "addSliceButton";
             this.addSliceButton.Size = new System.Drawing.Size(125, 52);
             this.addSliceButton.TabIndex = 2;
@@ -121,19 +135,6 @@
             this.SlicePanel.Size = new System.Drawing.Size(1309, 577);
             this.SlicePanel.TabIndex = 35;
             // 
-            // SaveToJsonButton
-            // 
-            this.SaveToJsonButton.BackColor = System.Drawing.Color.MistyRose;
-            this.SaveToJsonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SaveToJsonButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SaveToJsonButton.Location = new System.Drawing.Point(1125, 23);
-            this.SaveToJsonButton.Margin = new System.Windows.Forms.Padding(4);
-            this.SaveToJsonButton.Name = "SaveToJsonButton";
-            this.SaveToJsonButton.Size = new System.Drawing.Size(125, 52);
-            this.SaveToJsonButton.TabIndex = 3;
-            this.SaveToJsonButton.Text = "Zapisz";
-            this.SaveToJsonButton.UseVisualStyleBackColor = false;
-            // 
             // PropertySettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -143,7 +144,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label11);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PropertySettings";
             this.Text = "PropertySettings";
             this.panel2.ResumeLayout(false);

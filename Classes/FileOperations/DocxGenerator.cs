@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -13,9 +14,10 @@ namespace Generator_Spisu.Classes.FileOperations
             JsonConfigLoader loader = new JsonConfigLoader();
             Config config = loader.LoadConfig(settingsPath);
 
+            int TableWidth = 7000;
 
             List<string> columnHeaders = AttributeList.GetAttributeNames();
-            List<string> columnWidths = config.settings.ColumnWidths;
+            List<int> columnWidths = AttributeList.GetColumnWidths(); 
 
 
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(filePath, WordprocessingDocumentType.Document))
@@ -24,10 +26,23 @@ namespace Generator_Spisu.Classes.FileOperations
                 mainPart.Document = new Document();
                 Body body = mainPart.Document.AppendChild(new Body());
 
+                int totalwidth = columnWidths.Sum();
+                if (totalwidth > TableWidth)
+                {
+                    double ratio = (double)TableWidth / totalwidth;
+                   
+
+                    columnWidths = columnWidths.Select(x => (int)(x * ratio)).ToList(); 
+                }
+
+                TableWidth = columnWidths.Sum();
+
+                List <string> stringWidths = columnWidths.ConvertAll(x => x.ToString());
+
                 Table table = new Table();
 
                 TableProperties tableProperties = new TableProperties(
-                    new TableWidth { Width = "5000", Type = TableWidthUnitValues.Pct },
+                    new TableWidth { Width = TableWidth.ToString(), Type = TableWidthUnitValues.Pct },
                     new TableIndentation { Width = 0, Type = TableWidthUnitValues.Dxa },
                     new TableLayout { Type = TableLayoutValues.Fixed },
                     new TableJustification { Val = TableRowAlignmentValues.Left }
@@ -35,12 +50,12 @@ namespace Generator_Spisu.Classes.FileOperations
 
                 table.AppendChild(tableProperties);
 
-                AddTableHeader(table, columnHeaders, columnWidths);
+                AddTableHeader(table, columnHeaders, stringWidths);
                 AddTableBorders(table);
 
                 foreach (var rowData in data)
                 {
-                    AddTableRow(table, rowData, columnWidths);
+                    AddTableRow(table, rowData, stringWidths);
                 }
 
                 body.Append(table);
@@ -55,7 +70,7 @@ namespace Generator_Spisu.Classes.FileOperations
             {
                 TableCell headerCell = new TableCell();
                 Paragraph headerParagraph = new Paragraph(new Run(new Text(columnHeaders[i])));
-                headerCell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = columnWidths[i] }));
+                headerCell.Append(new TableCellProperties(new TableCellWidth { Type = TableWidthUnitValues.Dxa, Width = columnWidths[i]}));
                 headerCell.Append(headerParagraph);
                 headerRow.Append(headerCell);
             }

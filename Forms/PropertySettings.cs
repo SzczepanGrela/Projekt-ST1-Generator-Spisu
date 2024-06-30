@@ -89,18 +89,38 @@ namespace Generator_Spisu.Forms
 
         }
 
-        private void SaveSettingsButton_Click(object sender, EventArgs e)
+        private void SetSettings_Click(object sender, EventArgs e)
+        {
+           
+            SetSettings();
+            
+        }
+
+
+        private void LeaveEditModes()
+        {
+            foreach (AttributeSlice slice in this.SlicePanel.Controls)
+            {
+                slice.SwitchToDisplayMode();
+            }
+        }
+
+
+
+        private void SetSettings()
         {
 
-
+           
             try
             {
+                LeaveEditModes();
+
                 List<ProductAttribute> attributes = new List<ProductAttribute>();
 
                 foreach (AttributeSlice slice in this.SlicePanel.Controls)
                 {
                     bool unchangedName = slice.GetAttributeName() == "Przykładowa Nazwa";
-                    
+
                     if (unchangedName) throw new Exception("Przynajmniej jeden nienazwany atrybut");
 
                     attributes.Add(slice.GetAttribute());
@@ -137,7 +157,11 @@ namespace Generator_Spisu.Forms
             this.SlicePanel.Controls.Add(newSlice);
         }
 
+        private void SaveToJsonButton_Click(object sender, EventArgs e)
+        {
+            SetSettings();
 
-        
+            AttributeList.SetAttributesToSettings();
+        }
     }
 }

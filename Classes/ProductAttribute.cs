@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Presentation;
 using Generator_Spisu.Enums;
 
 namespace Generator_Spisu.Classes
@@ -19,14 +20,20 @@ namespace Generator_Spisu.Classes
 
         private List<string> _enumValues;
 
+        private int _columnWidth;
 
-        public ProductAttribute(string name, AttributeType type, bool canBeEmpty, List<string> enumValues)
+        private bool _isBold;
+
+
+        public ProductAttribute(string name, AttributeType type, bool canBeEmpty, List<string> enumValues, int columnWidth, bool isBold)
         {
             _name = name;
             _type = type;
             _canBeEmpty = canBeEmpty;
             _enumValues = enumValues;
             _id = Guid.NewGuid();
+            _columnWidth = columnWidth;
+            _isBold = isBold;
            
         }
 
@@ -57,6 +64,17 @@ namespace Generator_Spisu.Classes
             set { _enumValues = value; }
         }
 
+        public bool IsBold
+        {
+            get { return _isBold; }
+            set { _isBold = value; }
+        }
+
+        public int ColumnWidth
+        {
+            get { return _columnWidth; }
+            set { _columnWidth = value; }
+        }
 
         public override bool Equals(object obj)   // i override Equals method to compare two attributes
         {
@@ -78,7 +96,6 @@ namespace Generator_Spisu.Classes
         }
 
 
-    
 
     }
 
