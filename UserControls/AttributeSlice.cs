@@ -81,6 +81,9 @@ namespace Generator_Spisu.UserControls
 
         private void SwitchToEditMode()
         {
+            if(this.sliceMode == SliceMode.Edit) return;
+          
+          
             this.sliceMode = SliceMode.Edit;
             this.ConfirmAndEditButton.Text = "Zatwierdź";
 
@@ -100,6 +103,7 @@ namespace Generator_Spisu.UserControls
 
         public void SwitchToDisplayMode()
         {
+            if (this.sliceMode == SliceMode.Display) return;
             this.sliceMode = SliceMode.Display;
             this.ConfirmAndEditButton.Text = "Edytuj";
 

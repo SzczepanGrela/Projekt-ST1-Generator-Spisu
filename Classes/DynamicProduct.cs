@@ -70,7 +70,7 @@ namespace Generator_Spisu.Classes
             return _attributes;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             var result = new StringBuilder("Product attributes:\n");
             foreach (var kvp in _attributes)     // kvp - key value pair

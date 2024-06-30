@@ -88,7 +88,6 @@
     <Compile Include="Classes\FileOperations\CsvFileOperations.cs" />
     <Compile Include="Classes\FileOperations\DocxGenerator.cs" />
     <Compile Include="Classes\FileOperations\JsonSettingsOperations.cs" />
-    <Compile Include="Classes\Product.cs" />
     <Compile Include="Classes\ProductAttribute.cs" />
     <Compile Include="Classes\ProductList.cs" />
     <Compile Include="Enums\Enums.cs" />

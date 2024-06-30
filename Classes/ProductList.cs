@@ -160,7 +160,7 @@ namespace Generator_Spisu.Classes
 
             DynamicProduct product = new DynamicProduct();
 
-            PropertyInfo[] properties = typeof(Product).GetProperties();
+            PropertyInfo[] properties = typeof(DynamicProduct).GetProperties();
 
             for (int i = 1; i < properties.Length; i++)
             {

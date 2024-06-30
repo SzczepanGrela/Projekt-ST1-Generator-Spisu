@@ -111,7 +111,7 @@ namespace Generator_Spisu.Classes
 
             try
             {
-                loader.SaveConfig(config, "../../Settings/Attributes.json");
+               loader.SaveConfig(config, "../../Settings/Attributes.json");
             }
             catch (Exception e)
             {

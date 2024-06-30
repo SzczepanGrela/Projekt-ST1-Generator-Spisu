@@ -11,8 +11,7 @@ namespace Generator_Spisu.Classes.FileOperations
     {
         public void GenerateDocument(string filePath, List<List<string>> data, string settingsPath)
         {
-            JsonConfigLoader loader = new JsonConfigLoader();
-            Config config = loader.LoadConfig(settingsPath);
+           
 
             int TableWidth = 7000;
 
