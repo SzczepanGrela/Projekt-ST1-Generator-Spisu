@@ -214,7 +214,7 @@ namespace Generator_Spisu.UserControls
 
         }
 
-        public bool CanBeEmpty()
+        public bool GetCanBeEmpty()
         {
             if (this.CanBeEmptyCheckBox.Checked)
             {
@@ -236,7 +236,7 @@ namespace Generator_Spisu.UserControls
                 {
                     enumValues = this.GetEnumValues();
                 }
-                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.CanBeEmpty(), enumValues, this.GetColumnWidth(), this.GetIsBold());
+                return new ProductAttribute(this.GetAttributeName(), this.GetAttributeType(), this.GetCanBeEmpty(), enumValues, this.GetColumnWidth(), this.GetIsBold());
             }
             catch (Exception e)
             {

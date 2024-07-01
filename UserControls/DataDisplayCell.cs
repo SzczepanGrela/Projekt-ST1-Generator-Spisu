@@ -29,7 +29,7 @@ namespace Generator_Spisu.UserControls
 
        
 
-        public DataDisplayCell(string value,int width,  bool isBold, int fontSize)
+        public DataDisplayCell(string value, int width,  bool isBold, int fontSize)
         {
             InitializeComponent();
 
