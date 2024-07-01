@@ -153,7 +153,12 @@ namespace Generator_Spisu.Classes
                 {
                     foreach (string value in attribute.EnumValues)
                     {
-                        enumValues += value + ",";
+                        if (enumValues != "")
+                        {
+                            enumValues += ",";
+                        }
+
+                        enumValues += value;
                     }
                 }
 
@@ -175,7 +180,7 @@ namespace Generator_Spisu.Classes
             foreach (string line in lines)
             {
                 string[] values = line.Split(';');
-                string[] enumValues = values[5].Split(',');
+                string[] enumValues = values[3].Split(',');
 
                 int columnWidth = values[4] == "" ? 150 : int.Parse(values[4]);
 

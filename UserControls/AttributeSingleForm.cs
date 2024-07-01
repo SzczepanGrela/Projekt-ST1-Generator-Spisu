@@ -192,14 +192,21 @@ namespace Generator_Spisu.UserControls
                         control.Text = value as string;
                         break;
                     case AttributeType.Int:
-                        if (value is decimal intValue)
-                            ((NumericUpDown)control).Value = intValue;
-                        else if(value is null) ((NumericUpDown)control).Value = 0;
+                       
+                        var intValue = ConvertToInt(value);
+
+                        if (intValue == null)
+                            ((NumericUpDown)control).Value = 0;
+                        else ((NumericUpDown)control).Value = (decimal)intValue;
+
                         break;
                     case AttributeType.Double:
-                        if (value is decimal doubleValue)
-                            ((CustomNumericUpDown)control).Value = doubleValue;
-                        else if (value is null) ((CustomNumericUpDown)control).Value = 0;
+                        var doubleValue = ConvertToDouble(value);
+
+                        if (doubleValue == null)
+                            ((NumericUpDown)control).Value = 0;
+                        else ((NumericUpDown)control).Value = (decimal)doubleValue;
+
                         break;
                     case AttributeType.DateTime:
                         if (value is DateTime dateTimeValue)
@@ -225,6 +232,44 @@ namespace Generator_Spisu.UserControls
                 throw new InvalidOperationException($"Failed to set control value. {ex.Message}", ex);
             }
         }
+
+
+
+        private int? ConvertToInt(object value)
+        {
+            if (value is int intValue)
+            {
+                return intValue;
+            }
+            else if (value is string stringValue)
+            {
+                if (int.TryParse(stringValue, out int result))
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }
+
+
+        private double? ConvertToDouble(object value)
+        {
+            if (value is double doubleValue)
+            {
+                return doubleValue;
+            }
+            else if (value is string stringValue)
+            {
+                if (double.TryParse(stringValue, out double result))
+                {
+                    return result;
+                }
+            }
+
+            return null;
+        }
+
 
 
         public bool ValidateData()
